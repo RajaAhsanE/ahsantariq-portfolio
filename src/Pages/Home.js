@@ -258,7 +258,7 @@ const Home = () => {
                           className="fa fa-code stat-icon"
                           aria-hidden="true"
                         ></i>
-                        <h3 className="Count">3+</h3>
+                        <h3 className="Count">2+</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
                         <p>Years Experience</p>
@@ -1110,19 +1110,19 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div class="container-fluid map-col">
-                  <div class="col-md-12 col-sm-12 map-col">
-                    <div class="google-maps">
-                      <div class="map-wrap">
+                <div className="container-fluid map-col">
+                  <div className="col-md-12 col-sm-12 map-col">
+                    <div className="google-maps">
+                      <div className="map-wrap">
                         <iframe
                           title="google-maps"
                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.1234567890123!2d73.1234567890123!3d33.1234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbf1234567890%3A0x1234567890abcdef!2sKoral%20Town%2C%20Islamabad!5e0!3m2!1sen!2spk!4v1234567890123!5m2!1sen!2spk"
                           width="100%"
                           height="450"
                           style={{ border: "0" }}
-                          allowfullscreen=""
+                          allowFullScreen=""
                           loading="lazy"
-                          referrerpolicy="no-referrer-when-downgrade"
+                          referrerPolicy="no-referrer-when-downgrade"
                         ></iframe>
                       </div>
                     </div>

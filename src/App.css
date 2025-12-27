@@ -280,3 +280,410 @@ a:hover {
 .wow.animated {
   visibility: visible;
 }
+
+/* ============================================
+   MOBILE MENU ENHANCEMENTS
+   ============================================ */
+
+/* Mobile menu backdrop overlay */
+.mobile-menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1029;
+  animation: fadeIn 0.3s ease-in-out;
+  backdrop-filter: blur(2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Smooth mobile menu transitions */
+.navbar-collapse {
+  transition: all 0.3s ease-in-out !important;
+}
+
+.navbar-collapse.collapse.in.show {
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hamburger icon - Top Right Positioning */
+/* Hide on desktop, show only on mobile */
+.navbar-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1031;
+  display: none; /* Hidden by default on desktop */
+}
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  transition: transform 0.3s ease;
+  border: none !important;
+  background: transparent !important;
+  padding: 9px 10px;
+  margin-top: 15px;
+  margin-right: 15px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  z-index: 1032;
+  display: none; /* Hidden by default on desktop */
+  visibility: visible;
+  opacity: 1;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggle:hover {
+  transform: scale(1.1);
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Only show focus outline when using keyboard navigation (not mouse clicks) */
+.navbar-toggle:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggle:focus-visible {
+  outline: 2px solid #efd236 !important;
+  outline-offset: 2px;
+}
+
+.navbar-toggle:active {
+  transform: scale(0.95);
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.icon-bar {
+  transition: all 0.3s ease;
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  margin: 4px 0;
+}
+
+/* Transform hamburger to X when menu is open */
+.navbar-toggle:not(.collapsed) .icon-bar:nth-of-type(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggle:not(.collapsed) .icon-bar:nth-of-type(2) {
+  opacity: 0;
+}
+
+.navbar-toggle:not(.collapsed) .icon-bar:nth-of-type(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Alternative using icon-bar-open class */
+.icon-bar.icon-bar-open:nth-of-type(1) {
+  transform: rotate(45deg) translate(5px, 5px) !important;
+}
+
+.icon-bar.icon-bar-open:nth-of-type(2) {
+  opacity: 0 !important;
+}
+
+.icon-bar.icon-bar-open:nth-of-type(3) {
+  transform: rotate(-45deg) translate(7px, -6px) !important;
+}
+
+/* Active navigation link styling */
+.navbar-nav a.active {
+  color: #efd236 !important;
+  font-weight: 600;
+}
+
+.navbar-nav a.active::after {
+  width: 100% !important;
+}
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+
+/* Focus states for keyboard navigation */
+a:focus,
+button:focus {
+  outline: 2px solid #efd236;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #efd236;
+  outline-offset: 3px;
+}
+
+/* Skip to main content link for screen readers */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #efd236;
+  color: #000;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-main:focus {
+  top: 0;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================
+   ENHANCED INTERACTIVE ELEMENTS
+   ============================================ */
+
+/* Improved button styles */
+.about-link-1,
+.about-link-2 {
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.about-link-1:active,
+.about-link-2:active {
+  transform: translateY(-1px);
+}
+
+/* Better link hover states */
+.navbar-nav a:hover {
+  color: #efd236 !important;
+  transform: translateX(3px);
+}
+
+/* Contact links improvements */
+.contact-col-info a {
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.contact-col-info a:hover {
+  color: #efd236 !important;
+  transform: translateY(-2px);
+}
+
+/* Social media links */
+.about-social li a:focus {
+  outline: 2px solid #efd236;
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+/* ============================================
+   RESPONSIVE IMPROVEMENTS
+   ============================================ */
+
+/* Desktop: Hide hamburger menu, show regular navigation */
+@media screen and (min-width: 768px) {
+  .navbar-header {
+    display: none !important;
+  }
+
+  .navbar-toggle {
+    display: none !important;
+  }
+
+  /* Ensure regular navigation is visible on desktop */
+  .navbar-collapse {
+    display: block !important;
+  }
+
+  /* Hide mobile menu backdrop on desktop */
+  .mobile-menu-backdrop {
+    display: none !important;
+  }
+}
+
+/* Mobile: Show hamburger menu, hide regular navigation */
+@media screen and (max-width: 767px) {
+  /* Show hamburger icon on mobile */
+  .navbar-header {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    z-index: 1032 !important;
+    display: block !important;
+  }
+
+  .navbar-toggle {
+    position: relative !important;
+    float: right !important;
+    margin-top: 15px !important;
+    margin-right: 15px !important;
+    z-index: 1033 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Ensure hamburger stays visible when menu is open */
+  .navbar-toggle:not(.collapsed) {
+    z-index: 1034 !important;
+  }
+
+  /* Mobile menu positioning */
+  .navbar-collapse {
+    position: fixed;
+    top: 75px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    z-index: 1030;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+  }
+
+  .navbar-collapse.collapse.in.show {
+    display: block !important;
+  }
+
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  /* Mobile navigation links */
+  .navbar-nav {
+    padding: 20px 0;
+  }
+
+  .navbar-nav li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-nav a {
+    padding: 15px 20px !important;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-nav a:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-nav a:hover {
+    background-color: rgba(239, 210, 54, 0.1);
+    transform: translateX(0);
+  }
+}
+
+/* ============================================
+   PERFORMANCE & UX OPTIMIZATIONS
+   ============================================ */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Smooth scrolling with offset for fixed header */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* ============================================
+   VISUAL ENHANCEMENTS
+   ============================================ */
+
+/* Better card shadows */
+.service-details,
+.resume-details,
+.exp-details {
+  border-radius: 8px;
+}
+
+/* Improved text readability */
+p {
+  line-height: 1.7;
+}
+
+/* Better spacing for sections */
+section {
+  padding: 60px 0;
+}
+
+/* Enhanced contact form elements */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #efd236;
+  outline-offset: 2px;
+  border-color: #efd236;
+}
+
+/* Improved map container */
+.google-maps {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Better testimonial carousel */
+.carousel-indicators li {
+  transition: all 0.3s ease;
+}
+
+.carousel-indicators li.active {
+  background-color: #efd236;
+  transform: scale(1.2);
+}
