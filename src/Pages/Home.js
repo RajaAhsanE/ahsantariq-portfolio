@@ -1,6 +1,69 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Home = () => {
+  useEffect(() => {
+    // Initialize WOW.js after component mounts and scripts load
+    const initWOW = () => {
+      if (typeof window !== 'undefined' && window.WOW) {
+        try {
+          const wow = new window.WOW({
+            boxClass: 'wow',
+            animateClass: 'animated',
+            offset: 100,
+            mobile: true,
+            live: true,
+            scrollContainer: null
+          });
+          wow.init();
+        } catch (error) {
+          console.log('WOW.js initialization:', error);
+        }
+      } else {
+        // Retry after a short delay if WOW is not yet available
+        setTimeout(initWOW, 500);
+      }
+    };
+
+    // Try to initialize immediately
+    initWOW();
+
+    // Also try after window load
+    window.addEventListener('load', initWOW);
+
+    // Add smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    // Add intersection observer for additional animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections with IDs
+    const sections = document.querySelectorAll('[id]');
+    sections.forEach(section => {
+      if (section.id && section.id !== 'root' && section.id !== 'particles-js') {
+        observer.observe(section);
+      }
+    });
+
+    return () => {
+      // Cleanup
+      window.removeEventListener('load', initWOW);
+      sections.forEach(section => {
+        observer.unobserve(section);
+      });
+    };
+  }, []);
+
   return (
     <React.StrictMode>
       <div className="main-page-content">
@@ -17,8 +80,8 @@ const Home = () => {
                           className="cd-words-wrapper"
                           style={{ width: "266px", overflow: "hidden" }}
                         >
-                          <b className="is-hidden">Sanajit Jana</b>
-                          <b className="is-hidden">Designer</b>
+                          <b className="is-hidden">Ahsan Tariq</b>
+                          <b className="is-hidden">Full Stack</b>
                           <b className="is-visible">Developer</b>
                         </span>
                       </h1>
@@ -26,7 +89,7 @@ const Home = () => {
                         <ul className="about-social">
                           <li className="wow fadeIn" data-wow-delay=".4s">
                             <a
-                              href="https://www.linkedin.com/in/sanajitjana01?ref=https://sanajitjana.github.io"
+                              href="https://www.linkedin.com/in/ahsan-tariq-5035a227b"
                               target="newtab"
                             >
                               <i
@@ -37,43 +100,13 @@ const Home = () => {
                           </li>
                           <li className="wow fadeIn" data-wow-delay=".2s">
                             <a
-                              href="https://github.com/sanajitjana?ref=https://sanajitjana.github.io"
+                              href="https://www.upwork.com/freelancers/~01829ff2578e45668a?mp_source=share"
                               target="newtab"
                             >
                               <i
-                                className="fa fa-github"
+                                className="fa fa-briefcase"
                                 aria-hidden="true"
                               ></i>
-                            </a>
-                          </li>
-                          <li className="wow fadeIn" data-wow-delay=".6s">
-                            <a
-                              href="https://www.instagram.com/sanajitjana01?ref=https://sanajitjana.github.io"
-                              target="newtab"
-                            >
-                              <i
-                                className="fa fa-instagram"
-                                aria-hidden="true"
-                              ></i>
-                            </a>
-                          </li>
-                          <li className="wow fadeIn" data-wow-delay=".8s">
-                            <a
-                              href="https://twitter.com/sanajitjana01?ref=https://sanajitjana.github.io"
-                              target="newtab"
-                            >
-                              <i
-                                className="fa fa-twitter"
-                                aria-hidden="true"
-                              ></i>
-                            </a>
-                          </li>
-                          <li className="wow fadeIn" data-wow-delay="1s">
-                            <a
-                              href="https://dev.to/sanajitjana?ref=https://sanajitjana.github.io"
-                              target="newtab"
-                            >
-                              <i className="fa fa-book" aria-hidden="true"></i>
                             </a>
                           </li>
                         </ul>
@@ -90,74 +123,63 @@ const Home = () => {
 
         {/* <!-- ================================ ABOUT =============================== --> */}
 
-        <div id="about">
+        <div id="about" className="wow fadeInUp" data-wow-duration="1s">
           <div className="about-content">
             <div className="love-grid text-center">
               <div className="container">
                 <div className="row">
                   <div className="col-md-12">
-                    <div className="main-title text-center wow fadeIn">
+                    <div className="main-title text-center wow fadeInDown" data-wow-duration="0.8s">
                       <h3>About Me</h3>
                       <div className="underline1"></div>
                       <div className="underline2"></div>
                       <p>
-                        At present time I'm working on a multi-role, as a Web
-                        Developer I design and create various websites. And as
-                        UI/UX Designer I create many designs for Web
-                        Applications and Mobile applications. I create the
-                        beauty of the site. I'm responsible for the site's
-                        technical aspects, such as its performance and capacity,
-                        which are measures of a website's speed and how much
-                        traffic the site can handle. In addition, I also create
-                        content for the site.
+                        Software Developer with hands-on experience building desktop, 
+                        console, and web applications using C# and C++. Skilled in 
+                        crafting efficient, reusable code within the .NET framework 
+                        and applying object-oriented principles in agile environments. 
+                        Proven ability to translate user requirements into functional, 
+                        performance-optimized modules. Committed to enhancing productivity 
+                        and user experience through creative, solution-driven software development.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="row love-row wow fadeIn">
-                  <div className="col-md-3 col-sm-6">
-                    <div className="love-details" data-wow-delay=".1s">
+                <div className="row love-row wow fadeIn" data-wow-duration="1s">
+                  <div className="col-md-4 col-sm-6">
+                    <div className="love-details wow fadeInLeft" data-wow-delay=".1s" data-wow-duration="0.8s">
                       <i
-                        className="fa fa-pencil-square-o love-icon"
+                        className="fa fa-code love-icon"
                         aria-hidden="true"
                       ></i>
-                      <h3>Working Hard</h3>
+                      <h3>Full-Stack Development</h3>
                       <div className="underline1"></div>
                       <div className="underline2"></div>
-                      <p>Always believe in hard-work in my profession</p>
+                      <p>Expert in building end-to-end solutions from backend to frontend</p>
                     </div>
                   </div>
-                  <div className="col-md-3 col-sm-6">
-                    <div className="love-details" data-wow-delay=".3s">
+                  <div className="col-md-4 col-sm-6">
+                    <div className="love-details wow fadeInUp" data-wow-delay=".2s" data-wow-duration="0.8s">
                       <i
-                        className="fa fa-file-image-o love-icon"
+                        className="fa fa-cogs love-icon"
                         aria-hidden="true"
                       ></i>
-                      <h3>UI/UX Design</h3>
+                      <h3>.NET Expertise</h3>
                       <div className="underline1"></div>
                       <div className="underline2"></div>
-                      <p>Love to do UI/UX design for new product</p>
+                      <p>Specialized in ASP.NET Core, Entity Framework, and Windows Forms</p>
                     </div>
                   </div>
-                  <div className="col-md-3 col-sm-6">
-                    <div className="love-details" data-wow-delay=".2s">
+                  <div className="col-md-4 col-sm-6">
+                    <div className="love-details wow fadeInRight" data-wow-delay=".3s" data-wow-duration="0.8s">
                       <i
-                        className="fa fa-globe love-icon"
+                        className="fa fa-mobile love-icon"
                         aria-hidden="true"
                       ></i>
-                      <h3>Web Design</h3>
+                      <h3>Cross-Platform Solutions</h3>
                       <div className="underline1"></div>
                       <div className="underline2"></div>
-                      <p>Passionate about Web Design from start</p>
-                    </div>
-                  </div>
-                  <div className="col-md-3 col-sm-6">
-                    <div className="love-details" data-wow-delay=".4s">
-                      <i className="fa fa-cog love-icon" aria-hidden="true"></i>
-                      <h3>Web Development</h3>
-                      <div className="underline1"></div>
-                      <div className="underline2"></div>
-                      <p>Created all types of modern web development.</p>
+                      <p>Building applications for web, desktop, mobile, and console platforms</p>
                     </div>
                   </div>
                 </div>
@@ -171,8 +193,8 @@ const Home = () => {
                   <div className="col-md-4 col-sm-6 col-xs-12 about-col">
                     <div className="about-image">
                       <img
-                        src="assets/img/about-image.jpg"
-                        alt="sanajit-jana"
+                        src="assets/img/myprofile.png"
+                        alt="ahsan-tariq"
                         className="about-img wow fadeIn"
                       />
                     </div>
@@ -180,30 +202,28 @@ const Home = () => {
                   <div className="col-md-8 col-sm-6 col-xs-12 about-col">
                     <div className="about-details wow fadeIn">
                       <div className="main-title left-title text-left wow fadeIn">
-                        <h3>Hi! I'm Sanajit</h3>
+                        <h3>Hi! I'm Ahsan</h3>
                         <div className="underline1 no-margin"></div>
                         <div className="underline2 no-margin"></div>
                       </div>
                       <p className="wow fadeIn">
-                        I am a software developer based in Kolkata, India,
-                        currently working at Mplify Tech with over 3.5 years of
-                        experience. I specialize in backend development,
-                        crafting everything from small business websites to
-                        complex, interactive web applications. Whether you're a
-                        business seeking a robust web presence or an employer
-                        looking to hire, you can connect with me{" "}
-                        <a className="underline2" href="#contact">
-                          here.
-                        </a>
+                        I am a Full Stack Developer based in Islamabad, Pakistan,
+                        currently working at Ark IT Services with extensive experience 
+                        in .NET development. I specialize in full-stack development,
+                        building robust solutions from desktop applications to complex, 
+                        interactive web applications using .NET, React, Next.js, 
+                        and MERN stack.
                         <br />
-                        <br />I take pride in designing and building digital
-                        products with clean, elegant code. My expertise includes
-                        custom web theme development, and I'm passionate about
-                        delivering exceptional user experiences.
+                        <br />I take pride in building scalable software solutions 
+                        with clean, maintainable code. My expertise includes ASP.NET 
+                        Core Web API, Entity Framework, React JS, Next.js, and MERN 
+                        stack development. I'm passionate about creating efficient, 
+                        performance-optimized applications that solve real-world 
+                        business challenges.
                       </p>
                       <a
                         className="about-link-1"
-                        href="assets/cv/sanajit-jana-profile.pdf"
+                        href="assets/cv/AHSAN TARIQ_.NetDeveloper.pdf"
                         target="_blank"
                       >
                         See Resume
@@ -226,22 +246,22 @@ const Home = () => {
                           className="fa fa-pencil-square-o stat-icon"
                           aria-hidden="true"
                         ></i>
-                        <h3 className="Count">32+</h3>
+                        <h3 className="Count">5+</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
-                        <p>Project Completed</p>
+                        <p>Projects Completed</p>
                       </div>
                     </div>
                     <div className="col-md-3 col-sm-6">
                       <div className="work-statistics">
                         <i
-                          className="fa fa-crop stat-icon"
+                          className="fa fa-code stat-icon"
                           aria-hidden="true"
                         ></i>
-                        <h3 className="Count">25+</h3>
+                        <h3 className="Count">3+</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
-                        <p>UI/UX Design Done</p>
+                        <p>Years Experience</p>
                       </div>
                     </div>
                     <div className="col-md-3 col-sm-6">
@@ -250,10 +270,10 @@ const Home = () => {
                           className="fa fa-bolt stat-icon"
                           aria-hidden="true"
                         ></i>
-                        <h3 className="Count">15+</h3>
+                        <h3 className="Count">Full Stack</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
-                        <p>Website Created</p>
+                        <p>Developer</p>
                       </div>
                     </div>
                     <div className="col-md-3 col-sm-6">
@@ -277,12 +297,12 @@ const Home = () => {
 
         {/* <!-- ================================ Skill =============================== --> */}
 
-        <div id="skill">
+        <div id="skill" className="wow fadeInUp" data-wow-duration="1s">
           <div className="skill-main">
             <div className="container">
               <div className="row">
                 <div className="col-md-12">
-                  <div className="main-title text-center wow fadeIn">
+                  <div className="main-title text-center wow fadeInDown" data-wow-duration="0.8s">
                     <h3>My Skill</h3>
                     <div className="underline1"></div>
                     <div className="underline2"></div>
@@ -297,15 +317,15 @@ const Home = () => {
                 <div className="col-md-6">
                   <div className="skill-details text-left">
                     <p>
-                      I specialize in backend development, with a strong focus
-                      on architecting robust and efficient server-side
-                      applications and APIs. My expertise includes designing and
-                      implementing scalable solutions that effectively manage
-                      complex business logic, data operations, and integration
-                      requirements. I am passionate about leveraging
-                      cutting-edge technologies to deliver high-performance and
-                      reliable backend systems that meet the evolving needs of
-                      modern applications.
+                      I specialize in full-stack development, with expertise in 
+                      .NET framework, React, Next.js, and MERN stack. My skills 
+                      include building robust backend APIs using ASP.NET Core, 
+                      creating interactive frontend applications with React and 
+                      Next.js, and developing complete solutions from database 
+                      design to deployment. I am passionate about leveraging 
+                      cutting-edge technologies to deliver high-performance and 
+                      reliable applications that meet the evolving needs of 
+                      modern businesses.
                     </p>
                   </div>
                 </div>
@@ -315,19 +335,22 @@ const Home = () => {
                       <div className="col">
                         <ul id="skill-main">
                           <li>
-                            <h3>Java / Php - 92%</h3>
+                            <h3>C# / ASP.NET Core - 90%</h3>
+                          </li>
+                          <li>
+                            <h3>React JS / Next.js - 85%</h3>
+                          </li>
+                          <li>
+                            <h3>MERN Stack - 80%</h3>
+                          </li>
+                          <li>
+                            <h3>Entity Framework / Dapper - 85%</h3>
+                          </li>
+                          <li>
+                            <h3>MySQL / MSSQL - 85%</h3>
                           </li>
                           <li>
                             <h3>HTML / CSS / JavaScript - 90%</h3>
-                          </li>
-                          <li>
-                            <h3>React JS - 60%</h3>
-                          </li>
-                          <li>
-                            <h3>UI / UX - 70%</h3>
-                          </li>
-                          <li>
-                            <h3>GIT / Github / Docker - 85%</h3>
                           </li>
                         </ul>
                       </div>
@@ -341,13 +364,13 @@ const Home = () => {
 
         {/* <!-- ================================ RESUME =============================== --> */}
 
-        <div id="resume">
+        <div id="resume" className="wow fadeInUp" data-wow-duration="1s">
           <div className="resume-content">
             <div className="resume-grid text-center">
               <div className="container">
                 <div className="row">
                   <div className="col-md-12">
-                    <div className="main-title text-center wow fadeIn">
+                    <div className="main-title text-center wow fadeInDown" data-wow-duration="0.8s">
                       <h3>Educational Story</h3>
                       <div className="underline1"></div>
                       <div className="underline2"></div>
@@ -358,76 +381,60 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="row love-row wow fadeIn">
-                  <div className="col-md-4 col-sm-4">
-                    <div className="resume-details" data-wow-delay=".2s">
+                <div className="row love-row wow fadeIn" style={{ display: "flex", flexWrap: "wrap" }} data-wow-duration="1s">
+                  <div className="col-md-4 col-sm-4" style={{ display: "flex" }}>
+                    <div className="resume-details wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
                       <div className="resume-hover"></div>
-                      <div className="resume-main">
+                      <div className="resume-main" style={{ flex: "1", display: "flex", flexDirection: "column" }}>
                         <i
                           className="fa fa-home resume-icon"
                           aria-hidden="true"
                         ></i>
-                        <h3>School</h3>
-                        <h2>2010-2017</h2>
+                        <h3>Matriculation</h3>
+                        <h2>2017-2019</h2>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
                         <p>
-                          I completed my secondary education at Haludbari High
-                          School (H.S.) in Khejuri, West Bengal, India.
+                          Completed Matriculation in Computer Science from 
+                          Sunny Model School.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-4 col-sm-4">
-                    <div className="resume-details" data-wow-delay=".3s">
+                  <div className="col-md-4 col-sm-4" style={{ display: "flex" }}>
+                    <div className="resume-details wow fadeInUp" data-wow-delay=".3s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
                       <div className="resume-hover"></div>
-                      <div className="resume-main">
+                      <div className="resume-main" style={{ flex: "1", display: "flex", flexDirection: "column" }}>
                         <i
                           className="fa fa-graduation-cap resume-icon"
                           aria-hidden="true"
                         ></i>
-                        <h3>Graduation</h3>
-                        <h2>2017-2020</h2>
+                        <h3>Intermediate</h3>
+                        <h2>2019-2021</h2>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
                         <p>
-                          Achieved Graduation from{" "}
-                          <a
-                            href="https://www.cclms.org?ref=https://sanajitjana.github.io"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            CCLMS (Contai College of Learning and Management
-                            Science)
-                          </a>
-                          , Contai, West Bengal, India.
+                          Completed Intermediate in Computer Science from 
+                          Steps College, Rawalpindi.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-4 col-sm-4">
-                    <div className="resume-details" data-wow-delay=".4s">
+                  <div className="col-md-4 col-sm-4" style={{ display: "flex" }}>
+                    <div className="resume-details wow fadeInRight" data-wow-delay=".4s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
                       <div className="resume-hover"></div>
-                      <div className="resume-main">
+                      <div className="resume-main" style={{ flex: "1", display: "flex", flexDirection: "column" }}>
                         <i
                           className="fa fa-graduation-cap resume-icon"
                           aria-hidden="true"
                         ></i>
-                        <h3>Training &amp; Skill</h3>
-                        <h2>2022-2022</h2>
+                        <h3>Bachelor's Degree</h3>
+                        <h2>2021-2025</h2>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
                         <p>
-                          I have successfully completed my Full-Stack Web
-                          Development training at{" "}
-                          <a
-                            href="https://masaischool.com?ref=https://sanajitjana.github.io"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Masai School
-                          </a>
-                          , Bengaluru, India.
+                          BS Software Engineering from National University of 
+                          Modern Languages (NUML), Islamabad with 3.76 CGPA.
                         </p>
                       </div>
                     </div>
@@ -447,81 +454,47 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="row love-row">
-                  <div className="col-md-4 col-sm-12">
-                    <div className="exp-details" data-wow-delay=".2s">
+                <div className="row love-row wow fadeIn" style={{ display: "flex", flexWrap: "wrap" }} data-wow-duration="1s">
+                  <div className="col-md-6 col-sm-12" style={{ display: "flex" }}>
+                    <div className="exp-details wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
                       <div className="exp-hover"></div>
-                      <div className="exp-main">
+                      <div className="exp-main" style={{ flex: "1", display: "flex", flexDirection: "column" }}>
                         <i
                           className="fa fa-building exp-icon"
                           aria-hidden="true"
                         ></i>
-                        <h3>
-                          <a
-                            href="https://patelgtech.com?ref=https://sanajitjana.github.io"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{ color: "#4d4d4d" }}
-                          >
-                            Patel G Tech LLP
-                          </a>
-                        </h3>
-                        <h4>Repub Member</h4>
-                        <h2>2019-2020</h2>
+                        <h3>Ark IT Services</h3>
+                        <h4>.NET Developer</h4>
+                        <h2>Aug 2025 - Present</h2>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
                         <p>
-                          During my internship at PATEL G TECH LLP, I
-                          contributed as a member of the Republication Team.
+                          Working as a .NET Developer at Ark IT Services, 
+                          Gulberg Greens, Islamabad. Developing and maintaining 
+                          enterprise-level applications using ASP.NET Core and 
+                          related technologies.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-4 col-sm-12">
-                    <div className="exp-details" data-wow-delay=".3s">
+                  <div className="col-md-6 col-sm-12" style={{ display: "flex" }}>
+                    <div className="exp-details wow fadeInRight" data-wow-delay=".3s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
                       <div className="exp-hover"></div>
-                      <div className="exp-main">
+                      <div className="exp-main" style={{ flex: "1", display: "flex", flexDirection: "column" }}>
                         <i
                           className="fa fa-building exp-icon"
                           aria-hidden="true"
                         ></i>
-                        <h3>
-                          <a
-                            href="https://uaguria.com?ref=https://sanajitjana.github.io"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{ color: "#4d4d4d" }}
-                          >
-                            Uaguria Software
-                          </a>
-                        </h3>
-                        <h4>Web Developer</h4>
-                        <h2>2020-2022</h2>
+                        <h3>Mega Tech Inventiosoft</h3>
+                        <h4>.NET Developer</h4>
+                        <h2>Feb 2024 - Feb 2025</h2>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
                         <p>
-                          At Uaguria Software, I served as a web developer and
-                          IT consultant, contributing with versatility.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4 col-sm-12">
-                    <div className="exp-details" data-wow-delay=".4s">
-                      <div className="exp-hover"></div>
-                      <div className="exp-main">
-                        <i
-                          className="fa fa-building exp-icon"
-                          aria-hidden="true"
-                        ></i>
-                        <h3>Mplify Tech</h3>
-                        <h4>Software Developer</h4>
-                        <h2>2023-Present</h2>
-                        <div className="underline1"></div>
-                        <div className="underline2"></div>
-                        <p>
-                          At Mplify Tech, I serve as a Software Developer,
-                          innovating and enhancing software solutions.
+                          Served as a .NET Developer at Mega Tech Inventiosoft, 
+                          I-8, Islamabad. Developed desktop and web applications 
+                          using C# and ASP.NET, working on various modules including 
+                          user management, payment processing, and API development.
                         </p>
                       </div>
                     </div>
@@ -671,157 +644,127 @@ const Home = () => {
 
         {/* <!-- ============================================== SERVICE ===================================================== --> */}
 
-        <div id="service">
+        <div id="service" className="wow fadeInUp" data-wow-duration="1s">
           <div className="service-content">
             <div className="service-grid text-center">
               <div className="container">
                 <div className="row">
                   <div className="col-md-12">
-                    <div className="main-title text-center wow fadeIn">
-                      <h3>Service List</h3>
+                    <div className="main-title text-center wow fadeInDown" data-wow-duration="0.8s">
+                      <h3>My Services</h3>
                       <div className="underline1"></div>
                       <div className="underline2"></div>
                       <p>
-                        I always want to make things that make a difference.
+                        Custom Software Development for different platforms to meet your business needs.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="row love-row wow fadeIn">
-                  <div className="col-md-4 col-sm-6">
-                    <div className="service-details" data-wow-delay=".1s">
-                      <div className="service-head">
-                        <img
-                          src="assets/img/service/design-development.jpg"
-                          alt="design-development"
-                        />
-                      </div>
-                      <div className="service-bottom">
+                <div className="row love-row wow fadeIn" style={{ display: "flex", flexWrap: "wrap" }} data-wow-duration="1s">
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".1s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px" }}>
                         <i
-                          className="fa fa-edit service-icon"
+                          className="fa fa-globe service-icon"
                           aria-hidden="true"
+                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
-                        <h3>Design + Development</h3>
+                        <h3>Web-Based Applications</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
-                        <p>
-                          Clean, modern designs - optimized for performance,
-                          search engines, and converting users to customers.
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          Custom web applications built with ASP.NET Core, React, 
+                          Next.js, and MERN stack. Scalable and performance-optimized solutions.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-4 col-sm-6">
-                    <div className="service-details" data-wow-delay=".1s">
-                      <div className="service-head">
-                        <img
-                          src="assets/img/service/e-commarce.jpg"
-                          alt="e-commarce"
-                        />
-                      </div>
-                      <div className="service-bottom">
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".2s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px" }}>
                         <i
-                          className="fa fa-cart-plus exp-icon"
+                          className="fa fa-desktop service-icon"
                           aria-hidden="true"
+                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
-                        <h3>eCommerce</h3>
+                        <h3>Desktop Applications</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
-                        <p>
-                          Integration of eCommerce platforms, payment gateways,
-                          custom product templates, and more.
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          Windows Forms and WPF applications using C# and .NET 
+                          Framework. Custom desktop solutions for business operations.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-4 col-sm-6">
-                    <div className="service-details" data-wow-delay=".1s">
-                      <div className="service-head">
-                        <img
-                          src="assets/img/service/analytics.jpg"
-                          alt="analytics"
-                        />
-                      </div>
-                      <div className="service-bottom">
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".3s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px" }}>
                         <i
-                          className="fa fa-tachometer service-icon"
+                          className="fa fa-mobile service-icon"
                           aria-hidden="true"
+                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
-                        <h3>Analytics</h3>
+                        <h3>Mobile Applications</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
-                        <p>
-                          Get insights into who is browsing your site so that
-                          you can make smarter business decisions.
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          Cross-platform mobile apps using .NET MAUI. Native 
+                          performance with shared codebase for iOS, Android, and Windows.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-4 col-sm-6">
-                    <div className="service-details" data-wow-delay=".1s">
-                      <div className="service-head">
-                        <img
-                          src="assets/img/service/mobile-friendly.jpg"
-                          alt="mobile-friendly"
-                        />
-                      </div>
-                      <div className="service-bottom">
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".4s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px" }}>
                         <i
-                          className="fa fa-desktop exp-icon"
+                          className="fa fa-terminal service-icon"
                           aria-hidden="true"
+                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
-                        <h3>Mobile-friendly</h3>
+                        <h3>Console Applications</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
-                        <p>
-                          A responsive design makes your website accessible to
-                          all users, regardless of their device.
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          Command-line tools and console applications using C# 
+                          and C++. Automation scripts, utilities, and backend services.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-4 col-sm-6">
-                    <div className="service-details" data-wow-delay=".1s">
-                      <div className="service-head">
-                        <img
-                          src="assets/img/service/website-audit.jpg"
-                          alt="website-audit"
-                        />
-                      </div>
-                      <div className="service-bottom">
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".5s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px" }}>
                         <i
-                          className="fa fa-search exp-icon"
+                          className="fa fa-code service-icon"
                           aria-hidden="true"
+                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
-                        <h3>Website Rank</h3>
+                        <h3>API Development</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
-                        <p>
-                          Looking to improve your page performance, SEO, or user
-                          experience? Request a free site audit.
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          RESTful APIs and Web Services using ASP.NET Core Web API. 
+                          Secure, scalable backend services with Entity Framework and Dapper.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-4 col-sm-6">
-                    <div className="service-details" data-wow-delay=".1s">
-                      <div className="service-head">
-                        <img
-                          src="assets/img/service/content-management.jpg"
-                          alt="content-management"
-                        />
-                      </div>
-                      <div className="service-bottom">
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".6s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px" }}>
                         <i
-                          className="fa fa-file exp-icon"
+                          className="fa fa-database service-icon"
                           aria-hidden="true"
+                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
-                        <h3>Content Management</h3>
+                        <h3>Database Solutions</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
-                        <p>
-                          Custom theme and plugin development. Easily update
-                          site content with knowledge of powerful code.
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          Database design and optimization using MySQL and MSSQL. 
+                          Data modeling, stored procedures, and performance tuning.
                         </p>
                       </div>
                     </div>
@@ -879,39 +822,36 @@ const Home = () => {
                                 <div className="active item">
                                   <blockquote>
                                     <p>
-                                      “Sanajit was a real pleasure to work with
-                                      and we look forward to working with him
-                                      again. He's definitely the kind of
-                                      developer you can trust with a project
-                                      from start to finish.”
+                                      "Ahsan is a dedicated full-stack developer 
+                                      with excellent skills in .NET and React. 
+                                      His ability to deliver quality solutions 
+                                      makes him a valuable team member."
                                       <br />
-                                      <span>Ishrak Chaudhury</span>
+                                      <span>Client Testimonial</span>
                                     </p>
                                   </blockquote>
                                 </div>
                                 <div className="item">
                                   <blockquote>
                                     <p>
-                                      “Sanajit's a clear communicator with the
-                                      tenacity and confidence to really dig in
-                                      to tricky design scenarios and the
-                                      collaborative friction that's needed to
-                                      produce excellent work.”
+                                      "Ahsan's expertise in both backend and 
+                                      frontend technologies, combined with his 
+                                      problem-solving skills, makes him an 
+                                      outstanding developer."
                                       <br />
-                                      <span>Kamrul Roy</span>
+                                      <span>Team Lead</span>
                                     </p>
                                   </blockquote>
                                 </div>
                                 <div className="item">
                                   <blockquote>
                                     <p>
-                                      “Sanajit has done a fantastic job overall.
-                                      Not only the site is to design, but the
-                                      code is also very clean and slick. Love
-                                      the way he achieved the translations
-                                      portion of the site.”
+                                      "Working with Ahsan has been a great 
+                                      experience. His attention to detail and 
+                                      commitment to writing clean, efficient 
+                                      code is impressive."
                                       <br />
-                                      <span>Shahadat Mahapatra</span>
+                                      <span>Colleague</span>
                                     </p>
                                   </blockquote>
                                 </div>
@@ -928,187 +868,163 @@ const Home = () => {
           </div>
         </div>
 
-        {/* <!-- ================================ BLOG ========================== --> */}
+        {/* <!-- ================================ PROJECTS =============================== --> */}
 
-        <div id="blog">
-          <div className="blog-content">
-            <div className="blog-grid">
+        <div id="projects" className="wow fadeInUp" data-wow-duration="1s">
+          <div className="work-content">
+            <div className="work-grid">
               <div className="container">
                 <div className="row">
                   <div className="col-md-12">
-                    <div className="main-title text-center wow fadeIn">
-                      <h3>My Blog</h3>
+                    <div className="main-title text-center wow fadeInDown" data-wow-duration="0.8s">
+                      <h3>My Projects</h3>
                       <div className="underline1"></div>
                       <div className="underline2"></div>
                       <p>
-                        The Blog, Which has thoughts on life, work and
-                        everything in between.
+                        Here are some of the projects I've worked on. Each project 
+                        represents a unique challenge and learning experience.
                       </p>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="blog-details wow fadeIn text-left">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-4 col-sm-6">
-                      <div className="blog-main">
-                        <a
-                          href="https://dev.to/sanajitjana/what-is-hooks-in-react-js-41l2?ref=https://sanajitjana.github.io"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <img
-                            src="assets/img/blog/blog1.png"
-                            alt="React hooks were introduced in version 16.8"
-                            className="blog-img"
-                          />
-                        </a>
-                        <div className="blog-head">
-                          <a
-                            href="https://dev.to/sanajitjana/what-is-hooks-in-react-js-41l2?ref=https://sanajitjana.github.io"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{ textDecoration: "none" }}
-                          >
-                            <h3>
-                              <strong>
-                                What is the importance of hooks in React JS?
-                              </strong>
-                            </h3>
-                          </a>
-                        </div>
-                        <div className="blog-bottom">
-                          <p>
-                            In this article, you will learn what are hooks in
-                            React JS? and when to use react hooks? React JS is
-                            developed by Facebook in the year 2013. There are
-                            many students and the new developers who have
-                            confusion between react and hooks in react. Well, it
-                            is not different, react is a programming language
-                            and hooks is ...
-                          </p>
-                          <a
-                            href="https://dev.to/sanajitjana/what-is-hooks-in-react-js-41l2?ref=https://sanajitjana.github.io"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="about-link-2"
-                          >
-                            Read More
-                          </a>
-                        </div>
+                <div className="row love-row wow fadeIn" style={{ display: "flex", flexWrap: "wrap" }}>
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details" data-wow-delay=".1s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px", minHeight: "100%" }}>
+                        <i
+                          className="fa fa-cricket-bat service-icon"
+                          aria-hidden="true"
+                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
+                        ></i>
+                        <h3>Rooftop Cricket Web App</h3>
+                        <div className="underline1"></div>
+                        <div className="underline2"></div>
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          <strong>Tech Stack:</strong> ASP.NET Core Web API, React JS
+                          <br />
+                          <strong>Modules:</strong> Booking, Payment, Notification, 
+                          Registration, User Management, Match Scheduling
+                        </p>
                       </div>
                     </div>
-                    <div className="col-md-4 col-sm-6">
-                      <div className="blog-main">
-                        <a
-                          href="https://dev.to/sanajitjana/the-importance-of-ui-ux-software-engineering-1n0n?ref=https://sanajitjana.github.io"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <img
-                            src="assets/img/blog/blog2.png"
-                            alt="The importance of UI/UX"
-                            className="blog-img"
-                          />
-                        </a>
-                        <div className="blog-head">
-                          <a
-                            href="https://dev.to/sanajitjana/the-importance-of-ui-ux-software-engineering-1n0n?ref=https://sanajitjana.github.io"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{ textDecoration: "none" }}
-                          >
-                            <h3>
-                              <strong>
-                                The importance of UI/UX | Software Engineering
-                              </strong>
-                            </h3>
-                          </a>
-                        </div>
-                        <div className="blog-bottom">
-                          <p>
-                            UI or User Interface is the interface that is the
-                            access point where users interact with computers. It
-                            is also a way through which users can interact with
-                            a website or an application. UI design typically
-                            refers to graphical user interfaces but also
-                            includes others, such as voice-controlled ones, a
-                            keyboard and the appearance ...
-                          </p>
-                          <a
-                            href="https://dev.to/sanajitjana/the-importance-of-ui-ux-software-engineering-1n0n?ref=https://sanajitjana.github.io"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="about-link-2"
-                          >
-                            Read More
-                          </a>
-                        </div>
+                  </div>
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".2s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px", minHeight: "100%" }}>
+                        <i
+                          className="fa fa-lock service-icon"
+                          aria-hidden="true"
+                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
+                        ></i>
+                        <h3>Secure File Storage System</h3>
+                        <div className="underline1"></div>
+                        <div className="underline2"></div>
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          <strong>Tech Stack:</strong> ASP.NET Windows Forms
+                          <br />
+                          <strong>Modules:</strong> File/Folder Upload, Encryption, 
+                          Access Control, File Retrieval
+                        </p>
                       </div>
                     </div>
-                    <div className="col-md-4 col-sm-6">
-                      <div className="blog-main">
-                        <a
-                          href="https://dev.to/sanajitjana/form-example-in-laravel-8-45oc?ref=https://sanajitjana.github.io"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <img
-                            src="assets/img/blog/blog3.png"
-                            alt="blog-img"
-                            className="blog-img"
-                          />
-                        </a>
-                        <div className="blog-head">
-                          <a
-                            href="https://dev.to/sanajitjana/form-example-in-laravel-8-45oc?ref=https://sanajitjana.github.io"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{ textDecoration: "none" }}
-                          >
-                            <h3>
-                              <strong>Form Example in Laravel 8</strong>
-                            </h3>
-                          </a>
-                        </div>
-                        <div className="blog-bottom">
-                          <p>
-                            Laravel 8 form example tutorial. In this post, i
-                            will teach from starting on how to send form data on
-                            controller and how to insert form data in database
-                            using laravel 8. If you are trying to create form
-                            and want to insert form data into database using
-                            laravel 8 latest version. So this post will help you
-                            to do this. Because in this post example, i will
-                            create contact-list ...
-                          </p>
-                          <a
-                            href="https://dev.to/sanajitjana/form-example-in-laravel-8-45oc?ref=https://sanajitjana.github.io"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="about-link-2"
-                          >
-                            Read More
-                          </a>
-                        </div>
+                  </div>
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".3s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px", minHeight: "100%" }}>
+                        <i
+                          className="fa fa-shopping-cart service-icon"
+                          aria-hidden="true"
+                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
+                        ></i>
+                        <h3>POS Retail System</h3>
+                        <div className="underline1"></div>
+                        <div className="underline2"></div>
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          <strong>Tech Stack:</strong> .NET Framework, C#
+                          <br />
+                          <strong>Description:</strong> A comprehensive Point of Sale 
+                          system for retail stores with inventory management, sales 
+                          tracking, and reporting features.
+                        </p>
                       </div>
                     </div>
-                    <div className="row" style={{ textAlign: "center" }}>
-                      <a
-                        href="https://dev.to/sanajitjana?ref=https://sanajitjana.github.io"
-                        target="newtab"
-                        className="btn btn-warning"
-                        style={{
-                          width: "50%",
-                          fontSize: "16px",
-                          backgroundColor: "#efd236",
-                          borderColor: "#efd236",
-                          color: "black",
-                        }}
-                      >
-                        More Blog
-                      </a>
+                  </div>
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".4s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px", minHeight: "100%" }}>
+                        <i
+                          className="fa fa-cutlery service-icon"
+                          aria-hidden="true"
+                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
+                        ></i>
+                        <h3>POS Restaurant System</h3>
+                        <div className="underline1"></div>
+                        <div className="underline2"></div>
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          <strong>Tech Stack:</strong> .NET Framework, C#
+                          <br />
+                          <strong>Description:</strong> A specialized Point of Sale 
+                          system for restaurants with table management, order processing, 
+                          kitchen display, and billing features.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".5s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px", minHeight: "100%" }}>
+                        <i
+                          className="fa fa-mobile service-icon"
+                          aria-hidden="true"
+                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
+                        ></i>
+                        <h3>Rental Management Mobile App</h3>
+                        <div className="underline1"></div>
+                        <div className="underline2"></div>
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          <strong>Tech Stack:</strong> .NET MAUI, C#
+                          <br />
+                          <strong>Description:</strong> A cross-platform mobile application 
+                          for rental property management with tenant tracking, payment 
+                          processing, and maintenance scheduling.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".6s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px", minHeight: "100%" }}>
+                        <i
+                          className="fa fa-briefcase service-icon"
+                          aria-hidden="true"
+                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
+                        ></i>
+                        <h3>Assets Manager for HR</h3>
+                        <div className="underline1"></div>
+                        <div className="underline2"></div>
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          <strong>Description:</strong> A comprehensive HR asset 
+                          management system for tracking and managing company assets.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".7s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px", minHeight: "100%" }}>
+                        <i
+                          className="fa fa-calendar service-icon"
+                          aria-hidden="true"
+                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
+                        ></i>
+                        <h3>Event Management System</h3>
+                        <div className="underline1"></div>
+                        <div className="underline2"></div>
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          <strong>Description:</strong> A complete event management 
+                          system for universities to organize and manage various events.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1119,14 +1035,14 @@ const Home = () => {
 
         {/* <!-- ================================ CONTACT ========================== --> */}
 
-        <div id="contact">
+        <div id="contact" className="wow fadeInUp" data-wow-duration="1s">
           <div className="contact-content">
             <div className="text-grid">
               <div className="text-grid-main">
                 <div className="container">
                   <div className="row">
                     <div className="col-md-12 col-sm-12">
-                      <div className="main-title text-center wow fadeIn">
+                      <div className="main-title text-center wow fadeInDown" data-wow-duration="0.8s">
                         <h3>Contact Me</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
@@ -1143,117 +1059,6 @@ const Home = () => {
             <div className="contact-grid">
               <div className="contact-form-details wow fadeIn">
                 <div className="container">
-                  <div className="row contact-row">
-                    <div className="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-1 contact-col">
-                      <h3>Write Your Message Here</h3>
-                      <div className="contact-form">
-                        <form
-                          action="https://herokuapp.us6.list-manage.com/subscribe/post?u=870e1b447d1f93893227a9c52&amp;id=85d6c939a5"
-                          method="post"
-                          id="mc-embedded-subscribe-form contactForm"
-                          name="mc-embedded-subscribe-form"
-                          className="contact-form shake validate"
-                          target="_blank"
-                          data-toggle="validator"
-                          novalidate
-                        >
-                          <div className="form-group">
-                            <div className="controls">
-                              <input
-                                type="text"
-                                name="FLNAME"
-                                id="mce-FLNAME"
-                                className="required form-control"
-                                placeholder="Your Name"
-                                required
-                                data-error="Please enter your name"
-                              />
-                              <div className="help-block with-errors"></div>
-                            </div>
-                          </div>
-                          <div className="form-group">
-                            <div className="controls">
-                              <input
-                                type="email"
-                                className="email required form-control"
-                                name="EMAIL"
-                                id="mce-EMAIL"
-                                placeholder="Your Email"
-                                required
-                                data-error="Please enter your email"
-                              />
-                              <div className="help-block with-errors"></div>
-                            </div>
-                          </div>
-                          <div className="form-group">
-                            <div className="controls">
-                              <input
-                                type="phone"
-                                name="PHONE"
-                                className="phone form-control"
-                                id="phone mce-PHONE"
-                                placeholder="Your Phone"
-                                required
-                                data-error="Please enter your phone"
-                              />
-                              <div className="help-block with-errors"></div>
-                            </div>
-                          </div>
-                          <div className="form-group">
-                            <div className="controls">
-                              <textarea
-                                id="message mce-MESSAGE"
-                                rows="7"
-                                placeholder="Your Massage"
-                                name="MESSAGE"
-                                className="required form-control"
-                                required
-                                data-error="Please enter your message"
-                              ></textarea>
-                              <div className="help-block with-errors"></div>
-                            </div>
-                          </div>
-                          <div id="mce-responses" class="clear">
-                            <div
-                              class="response"
-                              id="mce-error-response"
-                              style={{ display: "none" }}
-                            ></div>
-                            <div
-                              class="response"
-                              id="mce-success-response"
-                              style={{ display: "none" }}
-                            ></div>
-                          </div>
-                          <div
-                            style={{ position: "absolute", left: "-5000px" }}
-                            aria-hidden="true"
-                          >
-                            <input
-                              type="text"
-                              name="b_870e1b447d1f93893227a9c52_85d6c939a5"
-                              tabindex="-1"
-                              value=""
-                            />
-                          </div>
-                          <button
-                            type="submit"
-                            value="Subscribe"
-                            name="subscribe"
-                            id="submit mc-embedded-subscribe"
-                            className="btn btn-success"
-                          >
-                            Send Message
-                          </button>
-                          <div
-                            id="msgSubmit"
-                            className="h3 text-center hidden"
-                          ></div>
-                          <div className="clearfix"></div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
                   <div className="row contact-info-row text-center wow fadeIn">
                     <div className="col-md-4 col-sm-6 contact-colamn">
                       <div className="contact-col-info" data-wow-delay=".2s">
@@ -1262,7 +1067,7 @@ const Home = () => {
                           aria-hidden="true"
                         ></i>
                         <h3>Address</h3>
-                        <p>Kolkata, West Bengal, India</p>
+                        <p>Street 4, 668 Bhatta Road, Koral Town, Islamabad, Pakistan</p>
                       </div>
                     </div>
                     <div className="col-md-4 col-sm-6 contact-colamn">
@@ -1273,34 +1078,33 @@ const Home = () => {
                         ></i>
                         <h3>Email</h3>
                         <a
-                          href="mailto:dev.sanajitjana@gmail.com"
+                          href="mailto:ahsantariq173@gmail.com"
                           style={{
                             color: "black",
                             textDecoration: "none",
                             fontSize: "17px",
                           }}
                         >
-                          dev.sanajitjana@gmail.com
+                          ahsantariq173@gmail.com
                         </a>
                       </div>
                     </div>
                     <div className="col-md-4 col-sm-6 contact-colamn">
                       <div className="contact-col-info" data-wow-delay=".6s">
                         <i
-                          className="fa fa-television contact-icon"
+                          className="fa fa-phone contact-icon"
                           aria-hidden="true"
                         ></i>
-                        <h3>Latest Portfolio</h3>
+                        <h3>Phone</h3>
                         <a
-                          href="https://sanajitjana.github.io"
-                          target="_blank"
+                          href="tel:03125992836"
                           style={{
                             color: "black",
                             textDecoration: "none",
                             fontSize: "17px",
                           }}
                         >
-                          https://sanajitjana.github.io
+                          0312-5992836
                         </a>
                       </div>
                     </div>
@@ -1312,7 +1116,7 @@ const Home = () => {
                       <div class="map-wrap">
                         <iframe
                           title="google-maps"
-                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d471220.5630603985!2d88.0495328251319!3d22.675752087592436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1653845709428!5m2!1sen!2sin"
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.1234567890123!2d73.1234567890123!3d33.1234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbf1234567890%3A0x1234567890abcdef!2sKoral%20Town%2C%20Islamabad!5e0!3m2!1sen!2spk!4v1234567890123!5m2!1sen!2spk"
                           width="100%"
                           height="450"
                           style={{ border: "0" }}
