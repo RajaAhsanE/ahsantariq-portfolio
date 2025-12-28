@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahsan Tariq - Full Stack Developer CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background: #fff;
+            padding: 10px;
+            font-size: 11px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 15px 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #efd236;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .header h2 {
+            font-size: 16px;
+            color: #7f8c8d;
+            font-weight: normal;
+            margin-bottom: 8px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+            font-size: 11px;
+        }
+        
+        .contact-info span {
+            color: #555;
+        }
+        
+        .section {
+            margin-bottom: 12px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            color: #2c3e50;
+            border-bottom: 2px solid #efd236;
+            padding-bottom: 3px;
+            margin-bottom: 8px;
+        }
+        
+        .profile-summary {
+            text-align: justify;
+            line-height: 1.5;
+            color: #555;
+            font-size: 10.5px;
+        }
+        
+        .experience-item, .education-item, .project-item {
+            margin-bottom: 10px;
+            padding-left: 12px;
+            border-left: 2px solid #efd236;
+            padding-bottom: 8px;
+        }
+        
+        .experience-item h3, .education-item h3, .project-item h3 {
+            color: #2c3e50;
+            font-size: 13px;
+            margin-bottom: 2px;
+        }
+        
+        .experience-item h4, .education-item h4 {
+            color: #7f8c8d;
+            font-size: 11px;
+            font-weight: normal;
+            margin-bottom: 2px;
+        }
+        
+        .experience-item .date, .education-item .date {
+            color: #efd236;
+            font-weight: bold;
+            font-size: 10px;
+            margin-bottom: 4px;
+        }
+        
+        .experience-item p, .education-item p, .project-item p {
+            color: #555;
+            line-height: 1.4;
+            margin-top: 4px;
+            font-size: 10px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+        
+        .skill-item {
+            background: #f8f9fa;
+            padding: 6px 10px;
+            border-radius: 3px;
+            border-left: 2px solid #efd236;
+            font-size: 10px;
+        }
+        
+        .skill-item strong {
+            color: #2c3e50;
+        }
+        
+        .project-item {
+            background: #f8f9fa;
+            padding: 8px 10px;
+            border-radius: 3px;
+            margin-bottom: 8px;
+        }
+        
+        .project-item h3 {
+            margin-bottom: 4px;
+            font-size: 12px;
+        }
+        
+        .project-item strong {
+            color: #2c3e50;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        
+        .competencies-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .competencies-list li {
+            font-size: 10px;
+            padding: 4px 8px;
+            background: #f8f9fa;
+            border-left: 2px solid #efd236;
+            border-radius: 3px;
+        }
+        
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px;
+        }
+        
+        .achievements-list li {
+            font-size: 10px;
+            padding-left: 12px;
+            border-left: 2px solid #efd236;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 15px;
+            }
+            @page {
+                size: A4;
+                margin: 1cm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AHSAN TARIQ</h1>
+            <h2>Full Stack Developer | .NET & React Specialist</h2>
+            <div class="contact-info">
+                <span>📧 ahsantariq173@gmail.com</span>
+                <span>📱 0312-5992836</span>
+                <span>📍 Islamabad, Pakistan</span>
+                <span>🌐 <a href="https://ahsantariq-portfolio.vercel.app/" style="color: #efd236; text-decoration: none;">Portfolio</a></span>
+                <span>💼 <a href="https://www.linkedin.com/in/ahsan-tariq-5035a227b" style="color: #0077b5; text-decoration: none;">LinkedIn</a></span>
+                <span>🔗 <a href="https://www.upwork.com/freelancers/~01829ff2578e45668a?mp_source=share" style="color: #6fda44; text-decoration: none;">Upwork</a></span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="profile-summary">
+                Full Stack Developer based in Islamabad, Pakistan, currently working at Ark IT Services with extensive experience in .NET development. I specialize in full-stack development, building robust solutions from desktop applications to complex, interactive web applications using .NET, React, Next.js, and MERN stack. My expertise includes ASP.NET Core Web API, Entity Framework, React JS, Next.js, and MERN stack development. I'm passionate about creating efficient, performance-optimized applications that solve real-world business challenges.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Ark IT Services</h3>
+                <h4>.NET Developer</h4>
+                <div class="date">August 2025 - Present</div>
+                <p>
+                    Working as a .NET Developer at Ark IT Services, Gulberg Greens, Islamabad. Developing and maintaining enterprise-level applications using ASP.NET Core and related technologies.
+                </p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Mega Tech Inventiosoft</h3>
+                <h4>.NET Developer</h4>
+                <div class="date">February 2024 - February 2025</div>
+                <p>
+                    Served as a .NET Developer at Mega Tech Inventiosoft, I-8, Islamabad. Developed desktop and web applications using C# and ASP.NET, working on various modules including user management, payment processing, and API development.
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-item">
+                <h3>BS Software Engineering</h3>
+                <h4>National University of Modern Languages (NUML), Islamabad | CGPA: 3.76</h4>
+                <div class="date">2021 - 2025</div>
+            </div>
+
+            <div class="education-item">
+                <h3>Intermediate in Computer Science</h3>
+                <h4>Steps College, Rawalpindi | 2019 - 2021</h4>
+            </div>
+
+            <div class="education-item">
+                <h3>Matriculation in Computer Science</h3>
+                <h4>Sunny Model School | 2017 - 2019</h4>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <strong>C# / ASP.NET Core</strong> - 90%
+                </div>
+                <div class="skill-item">
+                    <strong>React JS / Next.js</strong> - 85%
+                </div>
+                <div class="skill-item">
+                    <strong>MERN Stack</strong> - 50%
+                </div>
+                <div class="skill-item">
+                    <strong>Entity Framework / Dapper</strong> - 85%
+                </div>
+                <div class="skill-item">
+                    <strong>MySQL / MSSQL</strong> - 85%
+                </div>
+                <div class="skill-item">
+                    <strong>HTML / CSS / JavaScript</strong> - 90%
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <h3>Rooftop Cricket Web App</h3>
+                    <p><strong>Stack:</strong> ASP.NET Core Web API, React JS | Booking, Payment, Notification, User Management</p>
+                </div>
+                <div class="project-item">
+                    <h3>Secure File Storage System</h3>
+                    <p><strong>Stack:</strong> ASP.NET Windows Forms | File Upload, Encryption, Access Control</p>
+                </div>
+                <div class="project-item">
+                    <h3>POS Retail System</h3>
+                    <p><strong>Stack:</strong> .NET Framework, C# | Inventory management, sales tracking, reporting</p>
+                </div>
+                <div class="project-item">
+                    <h3>POS Restaurant System</h3>
+                    <p><strong>Stack:</strong> .NET Framework, C# | Table management, order processing, kitchen display</p>
+                </div>
+                <div class="project-item">
+                    <h3>Rental Management Mobile App</h3>
+                    <p><strong>Stack:</strong> .NET MAUI, C# | Tenant tracking, payment processing, maintenance scheduling</p>
+                </div>
+                <div class="project-item">
+                    <h3>Assets Manager for HR</h3>
+                    <p>HR asset management system for tracking and managing company assets</p>
+                </div>
+                <div class="project-item">
+                    <h3>Event Management System</h3>
+                    <p>Complete event management system for universities</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Core Competencies</h2>
+            <ul class="competencies-list">
+                <li>Full-Stack Development</li>
+                <li>.NET Framework & .NET Core</li>
+                <li>ASP.NET Core Web API</li>
+                <li>React JS & Next.js</li>
+                <li>MERN Stack</li>
+                <li>Entity Framework & Dapper</li>
+                <li>MySQL & MSSQL</li>
+                <li>Windows Forms & WPF</li>
+                <li>.NET MAUI</li>
+                <li>RESTful API Development</li>
+                <li>Database Design & Optimization</li>
+                <li>Object-Oriented Programming</li>
+            </ul>
+        </div>
+
+        <!-- <div class="section">
+            <h2 class="section-title">Services Offered</h2>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 10px; padding-left: 20px; border-left: 3px solid #efd236;">🌐 <strong>Web-Based Applications</strong> - Custom web applications built with ASP.NET Core, React, Next.js, and MERN stack</li>
+                <li style="margin-bottom: 10px; padding-left: 20px; border-left: 3px solid #efd236;">🖥️ <strong>Desktop Applications</strong> - Windows Forms and WPF applications using C# and .NET Framework</li>
+                <li style="margin-bottom: 10px; padding-left: 20px; border-left: 3px solid #efd236;">📱 <strong>Mobile Applications</strong> - Cross-platform mobile apps using .NET MAUI</li>
+                <li style="margin-bottom: 10px; padding-left: 20px; border-left: 3px solid #efd236;">⚙️ <strong>Console Applications</strong> - Command-line tools and automation scripts using C# and C++</li>
+                <li style="margin-bottom: 10px; padding-left: 20px; border-left: 3px solid #efd236;">🔌 <strong>API Development</strong> - RESTful APIs and Web Services using ASP.NET Core Web API</li>
+                <li style="margin-bottom: 10px; padding-left: 20px; border-left: 3px solid #efd236;">💾 <strong>Database Solutions</strong> - Database design and optimization using MySQL and MSSQL</li>
+            </ul>
+        </div> -->
+
+        <div class="section">
+            <h2 class="section-title">Achievements</h2>
+            <ul class="achievements-list">
+                <li>✅ 5+ Projects Completed</li>
+                <li>✅ 2+ Years of Professional Experience</li>
+                <li>✅ Expertise in Full-Stack Development</li>
+                <li>✅ Strong background in .NET and React ecosystems</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
