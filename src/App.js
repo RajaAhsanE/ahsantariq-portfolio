@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./component/Header";
 import Footer from "./component/Footer";
 import ScrollToTop from "./component/ScrollToTop";
+import ScrollToTopButton from "./component/ScrollToTopButton";
 
 // import Pages
 import Home from "./Pages/Home";
@@ -32,6 +33,7 @@ function App() {
           </Switch>
         </ScrollToTop>
         <Footer />
+        <ScrollToTopButton />
         <SpeedInsights />
       </Router>
     </React.StrictMode>
