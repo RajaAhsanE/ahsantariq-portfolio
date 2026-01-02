@@ -79,7 +79,7 @@ const Home = () => {
                         <span
                           className="cd-words-wrapper"
                           style={{ width: "266px", overflow: "hidden" }}
-                        >
+                        >    
                           <b className="is-hidden">Ahsan Tariq</b>
                           <b className="is-hidden">Full Stack</b>
                           <b className="is-visible">Developer</b>
