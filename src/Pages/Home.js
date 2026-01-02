@@ -78,7 +78,7 @@ const Home = () => {
                       <h1 className="cd-headline clip is-full-width">
                         <span
                           className="cd-words-wrapper"
-                          style={{ width: "400px", overflow: "hidden" }}
+                          style={{ width: "266px", overflow: "hidden" }}
                         >
                           <b className="is-hidden">Ahsan Tariq</b>
                           <b className="is-hidden">Full Stack</b>
