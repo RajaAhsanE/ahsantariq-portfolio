@@ -207,7 +207,7 @@ const Home = () => {
                       <div className="underline1"></div>
                       <div className="underline2"></div>
                       <p>
-                        Software Developer with hands-on experience building desktop,mobile
+                        Software Developer with hands-on experience building desktop,mobile,
                         console,web applications using C# ,JavaScript and C++. Skilled in 
                         crafting efficient, reusable code within the .NET framework 
                         and applying object-oriented principles in agile environments. 
@@ -428,6 +428,138 @@ const Home = () => {
                         </ul>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <!-- ================================ DOMAIN KNOWLEDGE =============================== --> */}
+
+        <div id="domain-knowledge" className="wow fadeInUp" data-wow-duration="1s">
+          <div className="skill-main">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="main-title text-center wow fadeInDown" data-wow-duration="0.8s">
+                    <h3>Domain Knowledge in Software</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p>
+                      Specialized expertise in various software domains, delivering 
+                      tailored solutions for diverse business needs.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="row love-row wow fadeIn" style={{ display: "flex", flexWrap: "wrap" }} data-wow-duration="1s">
+                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                  <div className="love-details wow fadeInLeft" data-wow-delay=".1s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                    <i
+                      className="fa fa-shopping-cart love-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <h3>POS Systems</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p style={{ flex: "1" }}>Point of Sale systems for retail and restaurant businesses with inventory management, sales tracking, and billing features.</p>
+                  </div>
+                </div>
+                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                  <div className="love-details wow fadeInUp" data-wow-delay=".2s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                    <i
+                      className="fa fa-users love-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <h3>HR Management</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p style={{ flex: "1" }}>Human Resources systems including asset management, employee tracking, and organizational resource planning.</p>
+                  </div>
+                </div>
+                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                  <div className="love-details wow fadeInRight" data-wow-delay=".3s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                    <i
+                      className="fa fa-lock love-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <h3>Encryption/Decryption Security</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p style={{ flex: "1" }}>Secure file storage systems with encryption/decryption capabilities, access control, and data protection mechanisms.</p>
+                  </div>
+                </div>
+                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                  <div className="love-details wow fadeInLeft" data-wow-delay=".4s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                    <i
+                      className="fa fa-calendar-check-o love-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <h3>Real-Time Booking</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p style={{ flex: "1" }}>Real-time booking and reservation systems with live availability updates, scheduling, and notification features.</p>
+                  </div>
+                </div>
+                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                  <div className="love-details wow fadeInUp" data-wow-delay=".5s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                    <i
+                      className="fa fa-credit-card love-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <h3>Payment Processing</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p style={{ flex: "1" }}>Secure payment gateway integration, transaction processing, and financial management systems.</p>
+                  </div>
+                </div>
+                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                  <div className="love-details wow fadeInRight" data-wow-delay=".6s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                    <i
+                      className="fa fa-calendar love-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <h3>Event Management</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p style={{ flex: "1" }}>Comprehensive event management systems for organizing, scheduling, and managing various events and activities.</p>
+                  </div>
+                </div>
+                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                  <div className="love-details wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                    <i
+                      className="fa fa-home love-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <h3>Rental Management</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p style={{ flex: "1" }}>Property and rental management systems with tenant tracking, payment processing, and maintenance scheduling.</p>
+                  </div>
+                </div>
+                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                  <div className="love-details wow fadeInUp" data-wow-delay=".8s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                    <i
+                      className="fa fa-bell love-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <h3>Notification Systems</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p style={{ flex: "1" }}>Real-time notification and alert systems for keeping users informed about important updates and events.</p>
+                  </div>
+                </div>
+                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                  <div className="love-details wow fadeInRight" data-wow-delay=".9s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                    <i
+                      className="fa fa-user-circle love-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <h3>User Management</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p style={{ flex: "1" }}>Comprehensive user management systems with authentication, authorization, role-based access control, and profile management.</p>
                   </div>
                 </div>
               </div>
