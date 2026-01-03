@@ -1,7 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 const Home = () => {
+  const wordsWrapperRef = useRef(null);
+
   useEffect(() => {
+    // Calculate and set proper width for the words wrapper on mount
+    const setWordsWrapperWidth = () => {
+      if (wordsWrapperRef.current) {
+        const wrapper = wordsWrapperRef.current;
+        const visibleWord = wrapper.querySelector('.is-visible');
+        if (visibleWord) {
+          // Get the actual width of the visible word and add padding
+          const wordWidth = visibleWord.offsetWidth || visibleWord.scrollWidth;
+          wrapper.style.width = `${wordWidth + 20}px`;
+        }
+      }
+    };
+
+    // Set width immediately and after fonts load
+    setWordsWrapperWidth();
+    
+    // Also set after a short delay to ensure fonts are loaded
+    const timeoutId = setTimeout(setWordsWrapperWidth, 100);
+    
     // Initialize WOW.js after component mounts and scripts load
     const initWOW = () => {
       if (typeof window !== 'undefined' && window.WOW) {
@@ -57,6 +78,7 @@ const Home = () => {
 
     return () => {
       // Cleanup
+      clearTimeout(timeoutId);
       window.removeEventListener('load', initWOW);
       sections.forEach(section => {
         observer.unobserve(section);
@@ -77,8 +99,9 @@ const Home = () => {
                     <div className="home-text wow fadeIn text-center">
                       <h1 className="cd-headline clip is-full-width">
                         <span
+                          ref={wordsWrapperRef}
                           className="cd-words-wrapper"
-                          style={{ width: "266px", overflow: "hidden" }}
+                          style={{ width: "550px", overflow: "hidden" }}
                         >    
                           <b className="is-hidden">Ahsan Tariq</b>
                           <b className="is-hidden">Full Stack</b>
