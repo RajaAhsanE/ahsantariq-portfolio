@@ -160,10 +160,43 @@
 
 /*============================= Preload==============================*/
 
+$(document).ready(function() {
+  "use strict";
+  // Lock body scroll and add class when preloader is active
+  $('html, body').addClass('se-pre-con-active');
+  
+  // Ensure preloader is properly positioned
+  $(".se-pre-con").css({
+    'position': 'fixed',
+    'left': '0',
+    'top': '0',
+    'right': '0',
+    'bottom': '0',
+    'width': '100vw',
+    'height': '100vh',
+    'transform': 'translate3d(0, 0, 0)',
+    '-webkit-transform': 'translate3d(0, 0, 0)',
+    'z-index': '99999'
+  });
+});
+
 $(window).on("load", function () {
   "use strict";
-  // Animate loader off screen
-  $(".se-pre-con").fadeOut("slow");
+  // Animate loader off screen - maintain position during fade
+  $(".se-pre-con").css({
+    'position': 'fixed',
+    'left': '0',
+    'top': '0',
+    'right': '0',
+    'bottom': '0',
+    'width': '100vw',
+    'height': '100vh',
+    'transform': 'translate3d(0, 0, 0)',
+    '-webkit-transform': 'translate3d(0, 0, 0)'
+  }).fadeOut("slow", function() {
+    $('html, body').removeClass('se-pre-con-active');
+    $(this).remove();
+  });
 });
 
 /*======================================counter-up ========================================*/
