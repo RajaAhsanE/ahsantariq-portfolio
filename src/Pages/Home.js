@@ -4,6 +4,33 @@ const Home = () => {
   const wordsWrapperRef = useRef(null);
 
   useEffect(() => {
+    // Ensure page stays at top on initial load
+    window.scrollTo(0, 0);
+    
+    // Prevent scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    // Prevent any automatic scrolling that might happen after load
+    const preventScroll = () => {
+      if (window.scrollY > 0) {
+        window.scrollTo(0, 0);
+      }
+    };
+
+    // Check and prevent scroll multiple times to catch delayed scrolls
+    preventScroll();
+    setTimeout(preventScroll, 0);
+    setTimeout(preventScroll, 100);
+    setTimeout(preventScroll, 300);
+    
+    // Also prevent scroll on window load event
+    const handleLoad = () => {
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('load', handleLoad);
+
     // Calculate and set proper width for the words wrapper on mount
     const setWordsWrapperWidth = () => {
       if (wordsWrapperRef.current) {
@@ -80,6 +107,7 @@ const Home = () => {
       // Cleanup
       clearTimeout(timeoutId);
       window.removeEventListener('load', initWOW);
+      window.removeEventListener('load', handleLoad);
       sections.forEach(section => {
         observer.unobserve(section);
       });
