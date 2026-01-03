@@ -207,8 +207,8 @@ const Home = () => {
                       <div className="underline1"></div>
                       <div className="underline2"></div>
                       <p>
-                        Software Developer with hands-on experience building desktop, 
-                        console, and web applications using C# and C++. Skilled in 
+                        Software Developer with hands-on experience building desktop,mobile
+                        console,web applications using C# ,JavaScript and C++. Skilled in 
                         crafting efficient, reusable code within the .NET framework 
                         and applying object-oriented principles in agile environments. 
                         Proven ability to translate user requirements into functional, 
@@ -420,7 +420,7 @@ const Home = () => {
                             <h3>Entity Framework / Dapper - 85%</h3>
                           </li>
                           <li>
-                            <h3>MySQL / MSSQL - 85%</h3>
+                            <h3>MySQL / MSSQL / MongoDB - 85%</h3>
                           </li>
                           <li>
                             <h3>HTML / CSS / JavaScript - 90%</h3>
