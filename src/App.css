@@ -57,7 +57,7 @@
 .love-icon,
 .resume-icon,
 .exp-icon {
-  transition: transform 0.3s ease, color 0.3s ease !important;
+  transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease !important;
 }
 
 .service-details:hover .service-icon,
@@ -66,6 +66,7 @@
 .exp-details:hover .exp-icon {
   transform: scale(1.2) rotate(5deg) !important;
   color: #efd236 !important;
+  background-color: white !important;
 }
 
 /* Smooth scroll behavior */
@@ -249,10 +250,34 @@ a:hover {
 /* Skill bar animation enhancement */
 #skill-main li {
   transition: transform 0.3s ease;
+  height: auto;
+  background: transparent;
+  border: none;
+  margin-bottom: 32px;
 }
 
 #skill-main li:hover {
   transform: translateX(10px);
+}
+
+#skill-main li h3 {
+  margin-bottom: 10px;
+}
+
+.skill-progress-track {
+  width: 100%;
+  height: 14px;
+  background: #f8f39e;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-progress-fill {
+  width: 0;
+  height: 100%;
+  background: #efd236;
+  border-radius: 4px;
+  transition: width 1.4s ease-out;
 }
 
 /* Parallax effect enhancement */

@@ -1,7 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Home = () => {
   const wordsWrapperRef = useRef(null);
+  const [skillAnimationStarted, setSkillAnimationStarted] = useState(false);
+
+  const skillItems = [
+    { label: "C# / ASP.NET Core", percent: 90 },
+    { label: "React JS / Next.js", percent: 85 },
+    { label: "MERN Stack", percent: 80 },
+    { label: "Entity Framework / Dapper", percent: 85 },
+    { label: "MySQL / MSSQL / MongoDB", percent: 85 },
+    { label: "HTML / CSS / JavaScript", percent: 90 },
+  ];
 
   useEffect(() => {
     // Ensure page stays at top on initial load
@@ -111,6 +121,28 @@ const Home = () => {
       sections.forEach(section => {
         observer.unobserve(section);
       });
+    };
+  }, []);
+
+  useEffect(() => {
+    const skillSection = document.getElementById("skill");
+    if (!skillSection) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setSkillAnimationStarted(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.35, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    observer.observe(skillSection);
+
+    return () => {
+      observer.disconnect();
     };
   }, []);
 
@@ -407,24 +439,21 @@ const Home = () => {
                     <div className="content">
                       <div className="col">
                         <ul id="skill-main">
-                          <li>
-                            <h3>C# / ASP.NET Core - 90%</h3>
-                          </li>
-                          <li>
-                            <h3>React JS / Next.js - 85%</h3>
-                          </li>
-                          <li>
-                            <h3>MERN Stack - 80%</h3>
-                          </li>
-                          <li>
-                            <h3>Entity Framework / Dapper - 85%</h3>
-                          </li>
-                          <li>
-                            <h3>MySQL / MSSQL / MongoDB - 85%</h3>
-                          </li>
-                          <li>
-                            <h3>HTML / CSS / JavaScript - 90%</h3>
-                          </li>
+                          {skillItems.map((skillItem) => (
+                            <li key={skillItem.label}>
+                              <h3>
+                                {skillItem.label} - {skillItem.percent}%
+                              </h3>
+                              <div className="skill-progress-track" aria-hidden="true">
+                                <div
+                                  className="skill-progress-fill"
+                                  style={{
+                                    width: skillAnimationStarted ? `${skillItem.percent}%` : "0%",
+                                  }}
+                                ></div>
+                              </div>
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </div>
@@ -553,7 +582,7 @@ const Home = () => {
                 <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
                   <div className="love-details wow fadeInRight" data-wow-delay=".9s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
                     <i
-                      className="fa fa-user-circle love-icon"
+                      className="fa fa-user love-icon"
                       aria-hidden="true"
                     ></i>
                     <h3>User Management</h3>
@@ -872,7 +901,6 @@ const Home = () => {
                         <i
                           className="fa fa-globe service-icon"
                           aria-hidden="true"
-                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
                         <h3>Web-Based Applications</h3>
                         <div className="underline1"></div>
@@ -890,7 +918,6 @@ const Home = () => {
                         <i
                           className="fa fa-desktop service-icon"
                           aria-hidden="true"
-                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
                         <h3>Desktop Applications</h3>
                         <div className="underline1"></div>
@@ -908,7 +935,6 @@ const Home = () => {
                         <i
                           className="fa fa-mobile service-icon"
                           aria-hidden="true"
-                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
                         <h3>Mobile Applications</h3>
                         <div className="underline1"></div>
@@ -926,7 +952,6 @@ const Home = () => {
                         <i
                           className="fa fa-terminal service-icon"
                           aria-hidden="true"
-                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
                         <h3>Console Applications</h3>
                         <div className="underline1"></div>
@@ -944,7 +969,6 @@ const Home = () => {
                         <i
                           className="fa fa-code service-icon"
                           aria-hidden="true"
-                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
                         <h3>API Development</h3>
                         <div className="underline1"></div>
@@ -962,7 +986,6 @@ const Home = () => {
                         <i
                           className="fa fa-database service-icon"
                           aria-hidden="true"
-                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
                         <h3>Database Solutions</h3>
                         <div className="underline1"></div>
@@ -1097,9 +1120,8 @@ const Home = () => {
                     <div className="service-details" data-wow-delay=".1s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
                       <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px", minHeight: "100%" }}>
                         <i
-                          className="fa fa-cricket-bat service-icon"
+                          className="fa fa-trophy service-icon"
                           aria-hidden="true"
-                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
                         <h3>Rooftop Cricket Web App</h3>
                         <div className="underline1"></div>
@@ -1119,7 +1141,6 @@ const Home = () => {
                         <i
                           className="fa fa-lock service-icon"
                           aria-hidden="true"
-                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
                         <h3>Secure File Storage System</h3>
                         <div className="underline1"></div>
@@ -1139,7 +1160,6 @@ const Home = () => {
                         <i
                           className="fa fa-shopping-cart service-icon"
                           aria-hidden="true"
-                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
                         <h3>POS Retail System</h3>
                         <div className="underline1"></div>
@@ -1160,7 +1180,6 @@ const Home = () => {
                         <i
                           className="fa fa-cutlery service-icon"
                           aria-hidden="true"
-                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
                         <h3>POS Restaurant System</h3>
                         <div className="underline1"></div>
@@ -1181,7 +1200,6 @@ const Home = () => {
                         <i
                           className="fa fa-mobile service-icon"
                           aria-hidden="true"
-                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
                         <h3>Rental Management Mobile App</h3>
                         <div className="underline1"></div>
@@ -1197,12 +1215,32 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".55s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px", minHeight: "100%" }}>
+                        <i
+                          className="fa fa-truck service-icon"
+                          aria-hidden="true"
+                        ></i>
+                        <h3>Distribution Mobile App</h3>
+                        <div className="underline1"></div>
+                        <div className="underline2"></div>
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          <strong>Tech Stack:</strong> .NET MAUI, C#
+                          <br />
+                          <strong>Features:</strong> Hybrid offline/online sync,
+                          field order taking, customer management, product catalog,
+                          and geofencing for territory-aware workflows.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
                     <div className="service-details wow fadeInUp" data-wow-delay=".6s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
                       <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px", minHeight: "100%" }}>
                         <i
                           className="fa fa-briefcase service-icon"
                           aria-hidden="true"
-                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
                         <h3>Assets Manager for HR</h3>
                         <div className="underline1"></div>
@@ -1220,7 +1258,6 @@ const Home = () => {
                         <i
                           className="fa fa-calendar service-icon"
                           aria-hidden="true"
-                          style={{ fontSize: "50px", marginBottom: "20px", color: "#efd236", display: "block" }}
                         ></i>
                         <h3>Event Management System</h3>
                         <div className="underline1"></div>
@@ -1272,7 +1309,7 @@ const Home = () => {
                           aria-hidden="true"
                         ></i>
                         <h3>Address</h3>
-                        <p>Street 4, 668 Bhatta Road, Koral Town, Islamabad, Pakistan</p>
+                        <p>Islamabad, Pakistan</p>
                       </div>
                     </div>
                     <div className="col-md-4 col-sm-6 contact-colamn">
@@ -1315,7 +1352,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="container-fluid map-col">
+                {/* <div className="container-fluid map-col">
                   <div className="col-md-12 col-sm-12 map-col">
                     <div className="google-maps">
                       <div className="map-wrap">
@@ -1332,7 +1369,7 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
