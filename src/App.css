@@ -185,7 +185,6 @@ a:hover {
 
 .about-social li a:hover {
   transform: translateY(-5px) scale(1.2);
-  color: #efd236 !important;
 }
 
 /* Navigation smooth transitions */
@@ -413,30 +412,32 @@ a:hover {
   margin: 4px 0;
 }
 
-/* Transform hamburger to X when menu is open */
-.navbar-toggle:not(.collapsed) .icon-bar:nth-of-type(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
+/* Transform hamburger to X when menu is open.
+   NOTE: the button also contains an sr-only <span>, so among spans the
+   three icon bars are nth-of-type 2, 3 and 4 (not 1-3). */
 .navbar-toggle:not(.collapsed) .icon-bar:nth-of-type(2) {
-  opacity: 0;
+  transform: translateY(6px) rotate(45deg);
 }
 
 .navbar-toggle:not(.collapsed) .icon-bar:nth-of-type(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+  opacity: 0;
+}
+
+.navbar-toggle:not(.collapsed) .icon-bar:nth-of-type(4) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 /* Alternative using icon-bar-open class */
-.icon-bar.icon-bar-open:nth-of-type(1) {
-  transform: rotate(45deg) translate(5px, 5px) !important;
-}
-
 .icon-bar.icon-bar-open:nth-of-type(2) {
-  opacity: 0 !important;
+  transform: translateY(6px) rotate(45deg) !important;
 }
 
 .icon-bar.icon-bar-open:nth-of-type(3) {
-  transform: rotate(-45deg) translate(7px, -6px) !important;
+  opacity: 0 !important;
+}
+
+.icon-bar.icon-bar-open:nth-of-type(4) {
+  transform: translateY(-6px) rotate(-45deg) !important;
 }
 
 /* Active navigation link styling */

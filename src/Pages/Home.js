@@ -520,6 +520,18 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                  <div className="love-details wow fadeInUp" data-wow-delay=".35s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                    <i
+                      className="fa fa-camera love-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <h3>Facial Recognition & Biometrics</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p style={{ flex: "1" }}>On-device facial recognition and biometric authentication using ONNX MobileFaceNet for secure mobile vault and identity verification.</p>
+                  </div>
+                </div>
+                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
                   <div className="love-details wow fadeInLeft" data-wow-delay=".4s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
                     <i
                       className="fa fa-calendar-check-o love-icon"
@@ -1000,99 +1012,6 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="testimonial">
-              <div className="testimonial-content">
-                <div className="testimonial-grid">
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-md-12">
-                        <div className="main-title text-center wow fadeIn">
-                          <h3>Testimonials</h3>
-                          <div className="underline1"></div>
-                          <div className="underline2"></div>
-                          <p>
-                            People I've worked with have said some nice things
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="testimonial-details">
-                    <section id="carousel">
-                      <div className="container">
-                        <div className="row">
-                          <div className="col-md-8 col-md-offset-2">
-                            <div className="quote">
-                              <i className="fa fa-quote-left fa-4x"></i>
-                            </div>
-                            <div
-                              className="carousel slide"
-                              id="fade-quote-carousel"
-                              data-ride="carousel"
-                              data-interval="3000"
-                            >
-                              <ol className="carousel-indicators">
-                                <li
-                                  data-target="#fade-quote-carousel"
-                                  data-slide-to="0"
-                                  className="active"
-                                ></li>
-                                <li
-                                  data-target="#fade-quote-carousel"
-                                  data-slide-to="1"
-                                ></li>
-                                <li
-                                  data-target="#fade-quote-carousel"
-                                  data-slide-to="2"
-                                ></li>
-                              </ol>
-                              <div className="carousel-inner">
-                                <div className="active item">
-                                  <blockquote>
-                                    <p>
-                                      "Ahsan is a dedicated full-stack developer 
-                                      with excellent skills in .NET and React. 
-                                      His ability to deliver quality solutions 
-                                      makes him a valuable team member."
-                                      <br />
-                                      <span>Client Testimonial</span>
-                                    </p>
-                                  </blockquote>
-                                </div>
-                                <div className="item">
-                                  <blockquote>
-                                    <p>
-                                      "Ahsan's expertise in both backend and 
-                                      frontend technologies, combined with his 
-                                      problem-solving skills, makes him an 
-                                      outstanding developer."
-                                      <br />
-                                      <span>Team Lead</span>
-                                    </p>
-                                  </blockquote>
-                                </div>
-                                <div className="item">
-                                  <blockquote>
-                                    <p>
-                                      "Working with Ahsan has been a great 
-                                      experience. His attention to detail and 
-                                      commitment to writing clean, efficient 
-                                      code is impressive."
-                                      <br />
-                                      <span>Colleague</span>
-                                    </p>
-                                  </blockquote>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -1131,6 +1050,26 @@ const Home = () => {
                           <br />
                           <strong>Modules:</strong> Booking, Payment, Notification, 
                           Registration, User Management, Match Scheduling
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".15s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px", minHeight: "100%" }}>
+                        <i
+                          className="fa fa-shield service-icon"
+                          aria-hidden="true"
+                        ></i>
+                        <h3>Security Vault Mobile App</h3>
+                        <div className="underline1"></div>
+                        <div className="underline2"></div>
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          <strong>Tech Stack:</strong> .NET MAUI, C#, ONNX Runtime, MobileFaceNet
+                          <br />
+                          <strong>Features:</strong> Facial recognition, biometric
+                          authentication, secure vault storage, and on-device face
+                          embedding with ONNX MobileFaceNet.
                         </p>
                       </div>
                     </div>
@@ -1322,7 +1261,6 @@ const Home = () => {
                         <a
                           href="mailto:ahsantariq173@gmail.com"
                           style={{
-                            color: "black",
                             textDecoration: "none",
                             fontSize: "17px",
                           }}
@@ -1341,7 +1279,6 @@ const Home = () => {
                         <a
                           href="tel:03125992836"
                           style={{
-                            color: "black",
                             textDecoration: "none",
                             fontSize: "17px",
                           }}

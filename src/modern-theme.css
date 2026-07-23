@@ -1,0 +1,655 @@
+/* ============================================================
+   MODERN DARK THEME
+   Loaded after all template CSS — overrides the light design
+   with a premium dark look: glassmorphism cards, gradient
+   accents, glows and modern typography.
+   ============================================================ */
+
+:root {
+  --bg-0: #070b14;
+  --bg-1: #0c1220;
+  --card-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
+  --card-border: rgba(255, 255, 255, 0.09);
+  --accent: #f5d33f;
+  --accent-2: #ff9d43;
+  --accent-grad: linear-gradient(135deg, #f5d33f 0%, #ffb84d 100%);
+  --text-1: #f5f8fd;
+  --text-2: #c3cbda;
+  --text-3: #97a1b3;
+  --font-display: "Sora", "Roboto Slab", sans-serif;
+  --font-body: "Inter", "Lato", sans-serif;
+}
+
+/* ---------- Global ---------- */
+
+html {
+  background-color: var(--bg-0);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-2);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background:
+    radial-gradient(55% 38% at 12% 8%, rgba(245, 211, 63, 0.06), transparent 70%),
+    radial-gradient(50% 35% at 88% 30%, rgba(255, 157, 67, 0.05), transparent 70%),
+    radial-gradient(60% 40% at 50% 85%, rgba(88, 101, 242, 0.05), transparent 70%),
+    var(--bg-0);
+}
+
+::selection {
+  background: var(--accent);
+  color: #0b0f19;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-0);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 211, 63, 0.5);
+}
+
+/* Preloader — replace the old skateboarder gif with a clean golden spinner */
+.se-pre-con {
+  background: var(--bg-0);
+}
+
+.se-pre-con::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  margin: -24px 0 0 -24px;
+  border: 3px solid rgba(245, 211, 63, 0.2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: mt-spin 0.8s linear infinite;
+}
+
+@keyframes mt-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar-default {
+  background-color: rgba(9, 13, 24, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Old template painted a teal gradient here — remove it */
+.navbar-fixed-top {
+  background-image: none;
+}
+
+.navbar-default.small {
+  background-color: rgba(9, 13, 24, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.07), 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.navbar-nav a::after {
+  background: var(--accent-grad) !important;
+  border-radius: 2px;
+}
+
+.navbar-nav a:hover {
+  transform: translateY(-1px);
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: var(--accent);
+}
+
+.site-title h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 767px) {
+  /* backdrop-filter breaks position:fixed for the dropdown menu inside
+     the navbar — use a solid background on mobile instead */
+  .navbar-default,
+  .navbar-default.small {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: rgba(9, 13, 24, 0.97);
+  }
+
+  .navbar-collapse {
+    background: rgba(9, 13, 24, 0.97) !important;
+    border-top: 1px solid var(--card-border);
+  }
+}
+
+
+/* ---------- Hero ---------- */
+
+/* Replace the teal particles image with a dark theme gradient */
+#particles-js {
+  background: radial-gradient(
+      80% 65% at 50% 15%,
+      rgba(245, 211, 63, 0.06),
+      transparent 60%
+    ),
+    radial-gradient(70% 60% at 80% 80%, rgba(88, 101, 242, 0.08), transparent 65%),
+    linear-gradient(180deg, #0d1424 0%, #0a101e 60%, var(--bg-0) 100%);
+}
+
+#home-parallex {
+  background: var(--bg-0);
+}
+
+#home-parallex:after {
+  background: linear-gradient(
+    180deg,
+    rgba(7, 11, 20, 0.4) 0%,
+    rgba(7, 11, 20, 0.2) 55%,
+    var(--bg-0) 100%
+  );
+}
+
+.cd-headline.clip span {
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+.cd-headline.clip b {
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Social icon chips (hero + footer) */
+.about-social li a {
+  color: var(--text-1);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.about-social li a:hover {
+  color: #14181f !important;
+  background: var(--accent-grad);
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(245, 211, 63, 0.35);
+}
+
+.about-social li a:hover i {
+  color: #14181f;
+}
+
+/* ---------- Sections: strip the white backgrounds ---------- */
+
+#about,
+#skill,
+#resume,
+#service,
+#contact,
+.love-grid,
+.work-counter,
+.text-grid-main,
+.contact-form-details {
+  background-color: transparent;
+}
+
+/* ---------- Tighter section spacing ---------- */
+
+.about-content,
+.resume-content {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.service-content,
+.contact-content {
+  padding-top: 50px;
+}
+
+.skill-main {
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.work-content {
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+
+.love-row {
+  margin-top: 40px;
+}
+
+.work-counter {
+  margin-top: 40px;
+}
+
+.main-row {
+  margin-top: 40px;
+}
+
+.me-grid {
+  margin-top: 20px;
+}
+
+.contact-row,
+.contact-info-row {
+  margin-top: 40px;
+}
+
+section {
+  padding: 20px 0;
+  margin-top: 0;
+}
+
+/* ---------- Section titles ---------- */
+
+.main-title {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.main-title h3,
+.testimonial-title h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--text-1);
+  letter-spacing: 1px;
+}
+
+.main-title p {
+  color: var(--text-2);
+}
+
+/* Scaling text on hover makes it look blurry — keep titles crisp */
+.main-title:hover h3 {
+  transform: none;
+}
+
+.underline1 {
+  background: var(--accent-grad);
+  box-shadow: 0 0 14px rgba(245, 211, 63, 0.45);
+  border-radius: 2px;
+}
+
+.underline2 {
+  background-color: var(--accent);
+  box-shadow: 0 0 10px rgba(245, 211, 63, 0.6);
+}
+
+/* ---------- Cards (domain knowledge / education / experience / services / projects) ---------- */
+
+.love-details,
+.resume-details,
+.exp-details,
+.service-details {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.love-details {
+  padding: 26px 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.love-details:hover,
+.resume-details:hover,
+.exp-details:hover,
+.service-details:hover {
+  border-color: rgba(245, 211, 63, 0.45);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 211, 63, 0.08) !important;
+}
+
+/* Card typography */
+.love-details h3,
+.resume-details h3,
+.exp-details h3,
+.service-details h3,
+.service-bottom h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-1);
+}
+
+.love-details p,
+.resume-details p,
+.exp-details p,
+.service-details p,
+.service-bottom p {
+  color: var(--text-2);
+}
+
+.resume-details h2,
+.exp-details h2 {
+  color: var(--text-3);
+}
+
+.service-bottom p strong {
+  color: var(--text-1);
+}
+
+/* Shine sweep on hover — same as My Services — for the card types
+   that were missing it */
+.work-statistics,
+.contact-col-info {
+  position: relative;
+  overflow: hidden;
+}
+
+.love-details::before,
+.work-statistics::before,
+.contact-col-info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(239, 210, 54, 0.1), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.love-details:hover::before,
+.work-statistics:hover::before,
+.contact-col-info:hover::before {
+  left: 100%;
+}
+
+/* Icon tiles */
+.love-icon,
+.resume-icon,
+.exp-icon,
+.service-icon {
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(245, 211, 63, 0.28);
+}
+
+/* Disable the old yellow slide-over on education/experience cards —
+   it clashes with the dark theme. Use the same glow hover as other cards. */
+.resume-hover,
+.exp-hover {
+  display: none;
+}
+
+.resume-details:hover h3,
+.exp-details:hover h3 {
+  color: var(--text-1);
+}
+
+.resume-details:hover h2,
+.exp-details:hover h2 {
+  color: var(--text-3);
+}
+
+.resume-details:hover p,
+.exp-details:hover p {
+  color: var(--text-2);
+}
+
+.exp-details:hover h4 {
+  color: var(--accent);
+}
+
+.resume-details:hover .underline1,
+.exp-details:hover .underline1 {
+  background: var(--accent-grad);
+}
+
+.resume-details:hover .underline2,
+.exp-details:hover .underline2 {
+  background-color: var(--accent);
+}
+
+/* ---------- About ---------- */
+
+/* Decorative frame from the old light theme — looks off on dark, remove */
+.about-back {
+  display: none;
+}
+
+.about-details p {
+  color: var(--text-2);
+}
+
+.about-details h3,
+.about-details h1 {
+  font-family: var(--font-display);
+  color: var(--text-1);
+}
+
+.about-img {
+  border-radius: 20px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.about-link-1,
+.about-link-2 {
+  background: var(--accent-grad);
+  color: #14181f;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(245, 211, 63, 0.25);
+}
+
+.about-link-1:hover,
+.about-link-2:hover {
+  background: var(--accent-grad);
+  color: #14181f;
+  border: none;
+  box-shadow: 0 12px 34px rgba(245, 211, 63, 0.45);
+}
+
+/* Stats counters */
+.work-statistics {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.work-statistics {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.work-statistics:hover {
+  transform: translateY(-10px);
+  border-color: rgba(245, 211, 63, 0.45);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 211, 63, 0.08);
+}
+
+.stat-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.work-statistics:hover .stat-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.work-statistics h3 {
+  font-family: var(--font-display);
+  color: var(--text-1);
+}
+
+.work-statistics p {
+  color: var(--text-2);
+}
+
+/* ---------- Skills ---------- */
+
+.skill-details p,
+.work-title p,
+.service-title p {
+  color: var(--text-2);
+}
+
+#skill-main h3 {
+  color: var(--text-2);
+  font-weight: 600;
+}
+
+.skill-progress-track {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--card-border);
+}
+
+.skill-progress-fill {
+  background: var(--accent-grad);
+  box-shadow: 0 0 14px rgba(245, 211, 63, 0.4);
+}
+
+/* ---------- Testimonials ---------- */
+
+/* Remove the old fixed photo background — pure dark theme instead */
+.testimonial {
+  background: transparent;
+}
+
+.testimonial:after {
+  display: none;
+}
+
+.quote,
+.quote i {
+  color: rgba(245, 211, 63, 0.3);
+}
+
+#fade-quote-carousel blockquote p {
+  color: var(--text-2);
+}
+
+#fade-quote-carousel blockquote p span {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.carousel-indicators li {
+  background-color: rgba(255, 255, 255, 0.25);
+  border: none;
+}
+
+.carousel-indicators .active {
+  background-color: var(--accent);
+}
+
+/* ---------- Contact ---------- */
+
+.contact-col-info {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 28px 18px;
+  backdrop-filter: blur(8px);
+}
+
+.contact-col-info:hover {
+  transform: translateY(-10px);
+  border-color: rgba(245, 211, 63, 0.45);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 211, 63, 0.08);
+}
+
+.contact-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.contact-col-info:hover .contact-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.contact-col-info h3 {
+  font-family: var(--font-display);
+}
+
+.contact-col-info p,
+.contact-col-info a {
+  color: var(--text-2) !important;
+}
+
+.contact-col-info a:hover {
+  color: var(--accent) !important;
+}
+
+/* Form fields (contact / form pages) */
+.form-control {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  color: var(--text-1);
+  border-radius: 12px;
+}
+
+.form-control:enabled {
+  border: 1px solid var(--card-border);
+}
+
+.form-control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(245, 211, 63, 0.15);
+}
+
+.form-control::-webkit-input-placeholder {
+  color: var(--text-3);
+}
+.form-control::-moz-placeholder {
+  color: var(--text-3);
+}
+.form-control:-ms-input-placeholder {
+  color: var(--text-3);
+}
+
+/* ---------- Footer ---------- */
+
+.copyright-details {
+  background-color: #090d18;
+  border-top: 1px solid var(--card-border);
+}
+
+.copyright h3 {
+  color: var(--text-2);
+  font-family: var(--font-body);
+  font-weight: 400;
+}
