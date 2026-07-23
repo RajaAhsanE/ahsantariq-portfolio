@@ -384,13 +384,13 @@ const Home = () => {
                     <div className="col-md-3 col-sm-6">
                       <div className="work-statistics">
                         <i
-                          className="fa fa-coffee stat-icon"
+                          className="fa fa-laptop stat-icon"
                           aria-hidden="true"
                         ></i>
-                        <h3 className="Count">100+</h3>
+                        <h3 className="Count">10+</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
-                        <p>Cups Coffee Taken</p>
+                        <p>Technologies Mastered</p>
                       </div>
                     </div>
                   </div>
