@@ -603,6 +603,30 @@ const Home = () => {
                     <p style={{ flex: "1" }}>Comprehensive user management systems with authentication, authorization, role-based access control, and profile management.</p>
                   </div>
                 </div>
+                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                  <div className="love-details wow fadeInLeft" data-wow-delay="1s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                    <i
+                      className="fa fa-file-audio-o love-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <h3>Audio/Video Conversion</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p style={{ flex: "1" }}>Media conversion tools supporting MP3, MP4, and M4A formats with encoding, transcoding, and batch processing capabilities.</p>
+                  </div>
+                </div>
+                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                  <div className="love-details wow fadeInUp" data-wow-delay="1.1s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                    <i
+                      className="fa fa-map-marker love-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <h3>Geo-Fencing</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p style={{ flex: "1" }}>Geo-fencing systems with real-time location tracking, boundary alerts, and location-based triggers for enhanced monitoring and automation.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
