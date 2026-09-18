@@ -464,174 +464,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* <!-- ================================ DOMAIN KNOWLEDGE =============================== --> */}
-
-        <div id="domain-knowledge" className="wow fadeInUp" data-wow-duration="1s">
-          <div className="skill-main">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="main-title text-center wow fadeInDown" data-wow-duration="0.8s">
-                    <h3>Domain Knowledge in Software</h3>
-                    <div className="underline1"></div>
-                    <div className="underline2"></div>
-                    <p>
-                      Specialized expertise in various software domains, delivering 
-                      tailored solutions for diverse business needs.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="row love-row wow fadeIn" style={{ display: "flex", flexWrap: "wrap" }} data-wow-duration="1s">
-                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
-                  <div className="love-details wow fadeInLeft" data-wow-delay=".1s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
-                    <i
-                      className="fa fa-shopping-cart love-icon"
-                      aria-hidden="true"
-                    ></i>
-                    <h3>POS Systems</h3>
-                    <div className="underline1"></div>
-                    <div className="underline2"></div>
-                    <p style={{ flex: "1" }}>Point of Sale systems for retail and restaurant businesses with inventory management, sales tracking, and billing features.</p>
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
-                  <div className="love-details wow fadeInUp" data-wow-delay=".2s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
-                    <i
-                      className="fa fa-users love-icon"
-                      aria-hidden="true"
-                    ></i>
-                    <h3>HR Management</h3>
-                    <div className="underline1"></div>
-                    <div className="underline2"></div>
-                    <p style={{ flex: "1" }}>Human Resources systems including asset management, employee tracking, and organizational resource planning.</p>
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
-                  <div className="love-details wow fadeInRight" data-wow-delay=".3s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
-                    <i
-                      className="fa fa-lock love-icon"
-                      aria-hidden="true"
-                    ></i>
-                    <h3>Encryption/Decryption Security</h3>
-                    <div className="underline1"></div>
-                    <div className="underline2"></div>
-                    <p style={{ flex: "1" }}>Secure file storage systems with encryption/decryption capabilities, access control, and data protection mechanisms.</p>
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
-                  <div className="love-details wow fadeInUp" data-wow-delay=".35s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
-                    <i
-                      className="fa fa-camera love-icon"
-                      aria-hidden="true"
-                    ></i>
-                    <h3>Facial Recognition & Biometrics</h3>
-                    <div className="underline1"></div>
-                    <div className="underline2"></div>
-                    <p style={{ flex: "1" }}>On-device facial recognition and biometric authentication using ONNX MobileFaceNet for secure mobile vault and identity verification.</p>
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
-                  <div className="love-details wow fadeInLeft" data-wow-delay=".4s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
-                    <i
-                      className="fa fa-calendar-check-o love-icon"
-                      aria-hidden="true"
-                    ></i>
-                    <h3>Real-Time Booking</h3>
-                    <div className="underline1"></div>
-                    <div className="underline2"></div>
-                    <p style={{ flex: "1" }}>Real-time booking and reservation systems with live availability updates, scheduling, and notification features.</p>
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
-                  <div className="love-details wow fadeInUp" data-wow-delay=".5s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
-                    <i
-                      className="fa fa-credit-card love-icon"
-                      aria-hidden="true"
-                    ></i>
-                    <h3>Payment Processing</h3>
-                    <div className="underline1"></div>
-                    <div className="underline2"></div>
-                    <p style={{ flex: "1" }}>Secure payment gateway integration, transaction processing, and financial management systems.</p>
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
-                  <div className="love-details wow fadeInRight" data-wow-delay=".6s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
-                    <i
-                      className="fa fa-calendar love-icon"
-                      aria-hidden="true"
-                    ></i>
-                    <h3>Event Management</h3>
-                    <div className="underline1"></div>
-                    <div className="underline2"></div>
-                    <p style={{ flex: "1" }}>Comprehensive event management systems for organizing, scheduling, and managing various events and activities.</p>
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
-                  <div className="love-details wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
-                    <i
-                      className="fa fa-home love-icon"
-                      aria-hidden="true"
-                    ></i>
-                    <h3>Rental Management</h3>
-                    <div className="underline1"></div>
-                    <div className="underline2"></div>
-                    <p style={{ flex: "1" }}>Property and rental management systems with tenant tracking, payment processing, and maintenance scheduling.</p>
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
-                  <div className="love-details wow fadeInUp" data-wow-delay=".8s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
-                    <i
-                      className="fa fa-bell love-icon"
-                      aria-hidden="true"
-                    ></i>
-                    <h3>Notification Systems</h3>
-                    <div className="underline1"></div>
-                    <div className="underline2"></div>
-                    <p style={{ flex: "1" }}>Real-time notification and alert systems for keeping users informed about important updates and events.</p>
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
-                  <div className="love-details wow fadeInRight" data-wow-delay=".9s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
-                    <i
-                      className="fa fa-user love-icon"
-                      aria-hidden="true"
-                    ></i>
-                    <h3>User Management</h3>
-                    <div className="underline1"></div>
-                    <div className="underline2"></div>
-                    <p style={{ flex: "1" }}>Comprehensive user management systems with authentication, authorization, role-based access control, and profile management.</p>
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
-                  <div className="love-details wow fadeInLeft" data-wow-delay="1s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
-                    <i
-                      className="fa fa-file-audio-o love-icon"
-                      aria-hidden="true"
-                    ></i>
-                    <h3>Audio/Video Conversion</h3>
-                    <div className="underline1"></div>
-                    <div className="underline2"></div>
-                    <p style={{ flex: "1" }}>Media conversion tools supporting MP3, MP4, and M4A formats with encoding, transcoding, and batch processing capabilities.</p>
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
-                  <div className="love-details wow fadeInUp" data-wow-delay="1.1s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
-                    <i
-                      className="fa fa-map-marker love-icon"
-                      aria-hidden="true"
-                    ></i>
-                    <h3>Geo-Fencing</h3>
-                    <div className="underline1"></div>
-                    <div className="underline2"></div>
-                    <p style={{ flex: "1" }}>Geo-fencing systems with real-time location tracking, boundary alerts, and location-based triggers for enhanced monitoring and automation.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* <!-- ================================ RESUME =============================== --> */}
 
         <div id="resume" className="wow fadeInUp" data-wow-duration="1s">
@@ -1072,9 +904,15 @@ const Home = () => {
                         <p style={{ flex: "1", marginTop: "15px" }}>
                           <strong>Tech Stack:</strong> ASP.NET Core Web API, React JS
                           <br />
-                          <strong>Modules:</strong> Booking, Payment, Notification, 
+                          <strong>Modules:</strong> Booking, Payment, Notification,
                           Registration, User Management, Match Scheduling
                         </p>
+                        <div className="project-tags">
+                          <span className="project-tag">Real-Time Booking</span>
+                          <span className="project-tag">Payment Processing</span>
+                          <span className="project-tag">Notification Systems</span>
+                          <span className="project-tag">User Management</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1095,6 +933,10 @@ const Home = () => {
                           authentication, secure vault storage, and on-device face
                           embedding with ONNX MobileFaceNet.
                         </p>
+                        <div className="project-tags">
+                          <span className="project-tag">Facial Recognition & Biometrics</span>
+                          <span className="project-tag">Encryption/Decryption Security</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1111,9 +953,12 @@ const Home = () => {
                         <p style={{ flex: "1", marginTop: "15px" }}>
                           <strong>Tech Stack:</strong> ASP.NET Windows Forms
                           <br />
-                          <strong>Modules:</strong> File/Folder Upload, Encryption, 
+                          <strong>Modules:</strong> File/Folder Upload, Encryption,
                           Access Control, File Retrieval
                         </p>
+                        <div className="project-tags">
+                          <span className="project-tag">Encryption/Decryption Security</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1130,10 +975,14 @@ const Home = () => {
                         <p style={{ flex: "1", marginTop: "15px" }}>
                           <strong>Tech Stack:</strong> .NET Framework, C#
                           <br />
-                          <strong>Description:</strong> A comprehensive Point of Sale 
-                          system for retail stores with inventory management, sales 
+                          <strong>Description:</strong> A comprehensive Point of Sale
+                          system for retail stores with inventory management, sales
                           tracking, and reporting features.
                         </p>
+                        <div className="project-tags">
+                          <span className="project-tag">POS Systems</span>
+                          <span className="project-tag">Payment Processing</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1150,10 +999,14 @@ const Home = () => {
                         <p style={{ flex: "1", marginTop: "15px" }}>
                           <strong>Tech Stack:</strong> .NET Framework, C#
                           <br />
-                          <strong>Description:</strong> A specialized Point of Sale 
-                          system for restaurants with table management, order processing, 
+                          <strong>Description:</strong> A specialized Point of Sale
+                          system for restaurants with table management, order processing,
                           kitchen display, and billing features.
                         </p>
+                        <div className="project-tags">
+                          <span className="project-tag">POS Systems</span>
+                          <span className="project-tag">Payment Processing</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1170,10 +1023,14 @@ const Home = () => {
                         <p style={{ flex: "1", marginTop: "15px" }}>
                           <strong>Tech Stack:</strong> .NET MAUI, C#
                           <br />
-                          <strong>Description:</strong> A cross-platform mobile application 
-                          for rental property management with tenant tracking, payment 
+                          <strong>Description:</strong> A cross-platform mobile application
+                          for rental property management with tenant tracking, payment
                           processing, and maintenance scheduling.
                         </p>
+                        <div className="project-tags">
+                          <span className="project-tag">Rental Management</span>
+                          <span className="project-tag">Payment Processing</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1194,6 +1051,10 @@ const Home = () => {
                           field order taking, customer management, product catalog,
                           and geofencing for territory-aware workflows.
                         </p>
+                        <div className="project-tags">
+                          <span className="project-tag">Geo-Fencing</span>
+                          <span className="project-tag">User Management</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1209,9 +1070,12 @@ const Home = () => {
                         <div className="underline1"></div>
                         <div className="underline2"></div>
                         <p style={{ flex: "1", marginTop: "15px" }}>
-                          <strong>Description:</strong> A comprehensive HR asset 
+                          <strong>Description:</strong> A comprehensive HR asset
                           management system for tracking and managing company assets.
                         </p>
+                        <div className="project-tags">
+                          <span className="project-tag">HR Management</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1222,13 +1086,41 @@ const Home = () => {
                           className="fa fa-calendar service-icon"
                           aria-hidden="true"
                         ></i>
+                        <h3>Attendance Management System</h3>
+                        <div className="underline1"></div>
+                        <div className="underline2"></div>
+                        <p style={{ flex: "1", marginTop: "15px" }}>
+                          <strong>Tech Stack:</strong> ASP.NET Core Web API, C#
+                          <br />
+                          <strong>Modules:</strong> Biometric Machine Integration,
+                          Employee Management, Departments, Shift Management,
+                          Attendance Records, Reporting &amp; Analytics
+                        </p>
+                        <div className="project-tags">
+                          <span className="project-tag">HR Management</span>
+                          <span className="project-tag">Facial Recognition & Biometrics</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details wow fadeInUp" data-wow-delay=".8s" data-wow-duration="0.8s" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px", minHeight: "100%" }}>
+                        <i
+                          className="fa fa-clock-o service-icon"
+                          aria-hidden="true"
+                        ></i>
                         <h3>Event Management System</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
                         <p style={{ flex: "1", marginTop: "15px" }}>
-                          <strong>Description:</strong> A complete event management 
+                          <strong>Description:</strong> A complete event management
                           system for universities to organize and manage various events.
                         </p>
+                        <div className="project-tags">
+                          <span className="project-tag">Event Management</span>
+                          <span className="project-tag">Notification Systems</span>
+                        </div>
                       </div>
                     </div>
                   </div>
