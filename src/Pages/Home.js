@@ -907,12 +907,6 @@ const Home = () => {
                           <strong>Modules:</strong> Booking, Payment, Notification,
                           Registration, User Management, Match Scheduling
                         </p>
-                        <div className="project-tags">
-                          <span className="project-tag">Real-Time Booking</span>
-                          <span className="project-tag">Payment Processing</span>
-                          <span className="project-tag">Notification Systems</span>
-                          <span className="project-tag">User Management</span>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -933,10 +927,6 @@ const Home = () => {
                           authentication, secure vault storage, and on-device face
                           embedding with ONNX MobileFaceNet.
                         </p>
-                        <div className="project-tags">
-                          <span className="project-tag">Facial Recognition & Biometrics</span>
-                          <span className="project-tag">Encryption/Decryption Security</span>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -956,9 +946,6 @@ const Home = () => {
                           <strong>Modules:</strong> File/Folder Upload, Encryption,
                           Access Control, File Retrieval
                         </p>
-                        <div className="project-tags">
-                          <span className="project-tag">Encryption/Decryption Security</span>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -979,10 +966,6 @@ const Home = () => {
                           system for retail stores with inventory management, sales
                           tracking, and reporting features.
                         </p>
-                        <div className="project-tags">
-                          <span className="project-tag">POS Systems</span>
-                          <span className="project-tag">Payment Processing</span>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -1003,10 +986,6 @@ const Home = () => {
                           system for restaurants with table management, order processing,
                           kitchen display, and billing features.
                         </p>
-                        <div className="project-tags">
-                          <span className="project-tag">POS Systems</span>
-                          <span className="project-tag">Payment Processing</span>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -1027,10 +1006,6 @@ const Home = () => {
                           for rental property management with tenant tracking, payment
                           processing, and maintenance scheduling.
                         </p>
-                        <div className="project-tags">
-                          <span className="project-tag">Rental Management</span>
-                          <span className="project-tag">Payment Processing</span>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -1051,10 +1026,6 @@ const Home = () => {
                           field order taking, customer management, product catalog,
                           and geofencing for territory-aware workflows.
                         </p>
-                        <div className="project-tags">
-                          <span className="project-tag">Geo-Fencing</span>
-                          <span className="project-tag">User Management</span>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -1073,9 +1044,6 @@ const Home = () => {
                           <strong>Description:</strong> A comprehensive HR asset
                           management system for tracking and managing company assets.
                         </p>
-                        <div className="project-tags">
-                          <span className="project-tag">HR Management</span>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -1096,10 +1064,6 @@ const Home = () => {
                           Employee Management, Departments, Shift Management,
                           Attendance Records, Reporting &amp; Analytics
                         </p>
-                        <div className="project-tags">
-                          <span className="project-tag">HR Management</span>
-                          <span className="project-tag">Facial Recognition & Biometrics</span>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -1117,10 +1081,6 @@ const Home = () => {
                           <strong>Description:</strong> A complete event management
                           system for universities to organize and manage various events.
                         </p>
-                        <div className="project-tags">
-                          <span className="project-tag">Event Management</span>
-                          <span className="project-tag">Notification Systems</span>
-                        </div>
                       </div>
                     </div>
                   </div>
