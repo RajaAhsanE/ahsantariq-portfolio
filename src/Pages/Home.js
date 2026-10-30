@@ -1,16 +1,42 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 const Home = () => {
   const wordsWrapperRef = useRef(null);
-  const [skillAnimationStarted, setSkillAnimationStarted] = useState(false);
 
-  const skillItems = [
-    { label: "C# / ASP.NET Core", percent: 90 },
-    { label: "React JS / Next.js", percent: 85 },
-    { label: "MERN Stack", percent: 80 },
-    { label: "Entity Framework / Dapper", percent: 85 },
-    { label: "MySQL / MSSQL / MongoDB", percent: 85 },
-    { label: "HTML / CSS / JavaScript", percent: 90 },
+  const skillGroups = [
+    { title: "Backend", items: ["C#", "ASP.NET Core Web API", "Entity Framework", "Dapper", "Node.js", "Express.js"] },
+    { title: "Frontend", items: ["React JS", "Next.js", "Angular", "JavaScript", "HTML", "CSS"] },
+    { title: "Mobile & Desktop", items: ["React Native", "Ionic", ".NET MAUI", "Electron.js", "Windows Forms", "WPF"] },
+    { title: "Databases", items: ["MSSQL", "MySQL", "PostgreSQL", "MongoDB"] },
+    { title: "DevOps & Cloud", items: ["Docker", "Azure"] },
+    { title: "Also Worked With", items: ["C++", "ONNX Runtime", "Biometric Devices"] },
+  ];
+
+  const processSteps = [
+    { icon: "fa-comments", title: "Discuss", text: "We talk through your goals, users and requirements so nothing is missed." },
+    { icon: "fa-list-alt", title: "Plan", text: "I share scope, timeline and a clear estimate before any work starts." },
+    { icon: "fa-code", title: "Build", text: "Development in small milestones with regular updates and demos." },
+    { icon: "fa-rocket", title: "Deliver & Support", text: "Testing, deployment and post-launch support so your product keeps running." },
+  ];
+
+  const trustItems = [
+    { icon: "fa-comments-o", title: "Clear Communication", text: "Regular progress updates and a single point of contact, so you are never left guessing." },
+    { icon: "fa-file-text-o", title: "Transparent Scope & Pricing", text: "Requirements, timeline and cost are agreed in writing before development starts." },
+    { icon: "fa-flag-checkered", title: "Milestone-Based Delivery", text: "Work is delivered in stages. You review and approve each milestone before we move on." },
+    { icon: "fa-key", title: "You Own the Source Code", text: "Full source code and documentation are handed over to you at delivery." },
+    { icon: "fa-user-secret", title: "Confidentiality (NDA)", text: "Your idea and business data stay private. I am happy to sign an NDA before we begin." },
+    { icon: "fa-shield", title: "Secure & Clean Code", text: "Maintainable code, role-based access, and secure handling of user data and payments." },
+    { icon: "fa-check-square-o", title: "Tested Before Release", text: "Features are tested before every demo and release to keep bugs out of production." },
+    { icon: "fa-life-ring", title: "Post-Launch Support", text: "Help with deployment, bug fixes and updates after your product goes live." },
+    { icon: "fa-expand", title: "Built to Scale", text: "Architecture that can grow with your business instead of needing a rewrite later." },
+  ];
+
+  const faqItems = [
+    { q: "What kind of projects do you build?", a: "Web apps, REST APIs, desktop software, and cross-platform mobile apps (React Native, Ionic and .NET MAUI) for business domains like POS, HR, attendance and booking systems." },
+    { q: "Can you integrate hardware such as biometric devices?", a: "Yes. I have built an attendance system integrated with biometric machines, covering employees, departments, shifts, attendance records and reports." },
+    { q: "How long will my project take?", a: "It depends on scope. After understanding your requirements I share a timeline and estimate up front, then deliver in milestones." },
+    { q: "Do you work remotely with international clients?", a: "Yes. I work remotely and can collaborate through Upwork, WhatsApp, email or video calls." },
+    { q: "Do you provide support after delivery?", a: "Yes. I help with deployment, bug fixes and updates after launch." },
   ];
 
   useEffect(() => {
@@ -121,28 +147,6 @@ const Home = () => {
       sections.forEach(section => {
         observer.unobserve(section);
       });
-    };
-  }, []);
-
-  useEffect(() => {
-    const skillSection = document.getElementById("skill");
-    if (!skillSection) {
-      return undefined;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setSkillAnimationStarted(entry.isIntersecting);
-        });
-      },
-      { threshold: 0.35, rootMargin: "0px 0px -10% 0px" }
-    );
-
-    observer.observe(skillSection);
-
-    return () => {
-      observer.disconnect();
     };
   }, []);
 
@@ -351,7 +355,7 @@ const Home = () => {
                           className="fa fa-pencil-square-o stat-icon"
                           aria-hidden="true"
                         ></i>
-                        <h3 className="Count">5+</h3>
+                        <h3 className="Count">10+</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
                         <p>Projects Completed</p>
@@ -390,7 +394,7 @@ const Home = () => {
                         <h3 className="Count">10+</h3>
                         <div className="underline1"></div>
                         <div className="underline2"></div>
-                        <p>Technologies Mastered</p>
+                        <p>Technologies Used</p>
                       </div>
                     </div>
                   </div>
@@ -438,23 +442,16 @@ const Home = () => {
                   <div className="skill-details">
                     <div className="content">
                       <div className="col">
-                        <ul id="skill-main">
-                          {skillItems.map((skillItem) => (
-                            <li key={skillItem.label}>
-                              <h3>
-                                {skillItem.label} - {skillItem.percent}%
-                              </h3>
-                              <div className="skill-progress-track" aria-hidden="true">
-                                <div
-                                  className="skill-progress-fill"
-                                  style={{
-                                    width: skillAnimationStarted ? `${skillItem.percent}%` : "0%",
-                                  }}
-                                ></div>
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
+                        {skillGroups.map((group) => (
+                          <div key={group.title} className="skill-group">
+                            <h4>{group.title}</h4>
+                            <div className="skill-chips">
+                              {group.items.map((item) => (
+                                <span key={item} className="skill-chip">{item}</span>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -808,7 +805,7 @@ const Home = () => {
                         <div className="underline1"></div>
                         <div className="underline2"></div>
                         <p style={{ flex: "1", marginTop: "15px" }}>
-                          Cross-platform mobile apps using .NET MAUI. Native 
+                          Cross-platform mobile apps using React Native, Ionic and .NET MAUI. Native 
                           performance with shared codebase for iOS, Android, and Windows.
                         </p>
                       </div>
@@ -866,6 +863,76 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <!-- ================================ PROCESS =============================== --> */}
+
+        <div id="process" className="wow fadeInUp" data-wow-duration="1s">
+          <div className="skill-main">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="main-title text-center wow fadeInDown" data-wow-duration="0.8s">
+                    <h3>How I Work</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p>
+                      A simple, transparent process so you always know what is
+                      happening with your project.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="row love-row wow fadeIn" style={{ display: "flex", flexWrap: "wrap" }}>
+                {processSteps.map((step, index) => (
+                  <div key={step.title} className="col-md-3 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="love-details" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                      <i className={`fa ${step.icon} love-icon`} aria-hidden="true"></i>
+                      <h3>{index + 1}. {step.title}</h3>
+                      <div className="underline1"></div>
+                      <div className="underline2"></div>
+                      <p style={{ flex: "1" }}>{step.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <!-- ================================ TRUST =============================== --> */}
+
+        <div id="trust" className="wow fadeInUp" data-wow-duration="1s">
+          <div className="skill-main">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="main-title text-center wow fadeInDown" data-wow-duration="0.8s">
+                    <h3>Why Clients Trust Me</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p>
+                      Custom software is a big investment. Here is what you can
+                      expect when we work together.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="row love-row wow fadeIn" style={{ display: "flex", flexWrap: "wrap" }}>
+                {trustItems.map((item) => (
+                  <div key={item.title} className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="love-details" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                      <i className={`fa ${item.icon} love-icon`} aria-hidden="true"></i>
+                      <h3>{item.title}</h3>
+                      <div className="underline1"></div>
+                      <div className="underline2"></div>
+                      <p style={{ flex: "1" }}>{item.text}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -1085,6 +1152,60 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <!-- ================================ FAQ =============================== --> */}
+
+        <div id="faq" className="wow fadeInUp" data-wow-duration="1s">
+          <div className="skill-main">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="main-title text-center wow fadeInDown" data-wow-duration="0.8s">
+                    <h3>Client FAQ</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p>Answers to the questions clients ask most before starting a project.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-8 col-md-offset-2">
+                  {faqItems.map((item) => (
+                    <details key={item.q} className="faq-item">
+                      <summary>{item.q}</summary>
+                      <p>{item.a}</p>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <!-- ================================ HIRE CTA =============================== --> */}
+
+        <div id="hire" className="wow fadeInUp" data-wow-duration="1s">
+          <div className="container">
+            <div className="hire-cta text-center">
+              <h3>Have a project in mind?</h3>
+              <p>
+                I'm open to freelance and remote projects. Share your idea and
+                I'll get back to you with a clear plan and estimate.
+              </p>
+              <div className="hire-cta-buttons">
+                <a className="about-link-1" href="mailto:ahsantariq173@gmail.com">
+                  Email Me
+                </a>
+                <a className="about-link-2" href="https://wa.me/923125992836" target="_blank" rel="noreferrer">
+                  WhatsApp
+                </a>
+                <a className="about-link-2" href="https://www.upwork.com/freelancers/~01829ff2578e45668a?mp_source=share" target="_blank" rel="noreferrer">
+                  Hire on Upwork
+                </a>
               </div>
             </div>
           </div>

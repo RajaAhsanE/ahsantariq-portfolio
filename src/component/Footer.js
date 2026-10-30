@@ -43,7 +43,7 @@ function Footer() {
           </ul>
         </div>
         <div className="copyright">
-          <h3>&copy; {currYear}, Made with ❤️ by Ahsan Tariq.</h3>
+          <h3>&copy; {currYear}, Made by Ahsan Tariq.</h3>
         </div>
       </div>
     </React.StrictMode>
