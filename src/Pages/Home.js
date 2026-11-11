@@ -31,6 +31,15 @@ const Home = () => {
     { icon: "fa-expand", title: "Built to Scale", text: "Architecture that can grow with your business instead of needing a rewrite later." },
   ];
 
+  const playApps = [
+    { name: "Distributor App", id: "com.moneypex.distribution", text: "Field distribution app for order taking, customers and territory-aware workflows." },
+    { name: "Bookkeeping App", id: "com.ark.moneypex", text: "Bookkeeping app to track business transactions and records on mobile." },
+    { name: "Customer Quote App", id: "com.moneypex.customerquote", text: "Create and share customer quotes quickly from your phone." },
+    { name: "Rents App", id: "com.moneypex.rents", text: "Rental management app for properties, tenants and rent tracking." },
+    { name: "Scanner App", id: "com.moneypex.scanner", text: "Scanner app for capturing documents and codes on the go." },
+    { name: "Waiters App", id: "com.moneypex.waiterapp", text: "Waiter app for taking restaurant orders at the table." },
+  ];
+
   const faqItems = [
     { q: "What kind of projects do you build?", a: "Web apps, REST APIs, desktop software, and cross-platform mobile apps (React Native, Ionic and .NET MAUI) for business domains like POS, HR, attendance and booking systems." },
     { q: "Can you integrate hardware such as biometric devices?", a: "Yes. I have built an attendance system integrated with biometric machines, covering employees, departments, shifts, attendance records and reports." },
@@ -1152,6 +1161,61 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <!-- ================================ PLAY STORE =============================== --> */}
+
+        <div id="playstore" className="wow fadeInUp" data-wow-duration="1s">
+          <div className="skill-main">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="main-title text-center wow fadeInDown" data-wow-duration="0.8s">
+                    <h3>Live on Google Play</h3>
+                    <div className="underline1"></div>
+                    <div className="underline2"></div>
+                    <p>
+                      {playApps.length} mobile apps live on the Google Play Store.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="row love-row wow fadeIn" style={{ display: "flex", flexWrap: "wrap" }}>
+                {playApps.map((app) => (
+                  <div key={app.id} className="col-md-4 col-sm-6" style={{ marginBottom: "30px", display: "flex" }}>
+                    <div className="service-details" style={{ height: "100%", display: "flex", flexDirection: "column", width: "100%" }}>
+                      <div className="service-bottom" style={{ flex: "1", display: "flex", flexDirection: "column", padding: "20px" }}>
+                        <i className="fa fa-android service-icon" aria-hidden="true"></i>
+                        <h3>{app.name}</h3>
+                        <div className="underline1"></div>
+                        <div className="underline2"></div>
+                        <p style={{ flex: "1", marginTop: "15px" }}>{app.text}</p>
+                        <a
+                          className="about-link-1"
+                          href={`https://play.google.com/store/apps/details?id=${app.id}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          style={{ alignSelf: "flex-start", marginTop: "10px" }}
+                        >
+                          View on Play Store
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="text-center">
+                <a
+                  className="about-link-2"
+                  href="https://play.google.com/store/search?q=moneypex&c=apps"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  See all on Google Play
+                </a>
               </div>
             </div>
           </div>
