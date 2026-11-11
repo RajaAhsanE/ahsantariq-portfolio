@@ -8,8 +8,8 @@ const Home = () => {
     { title: "Frontend", items: ["React JS", "Next.js", "Angular", "JavaScript", "HTML", "CSS"] },
     { title: "Mobile & Desktop", items: ["React Native", "Ionic", ".NET MAUI", "Electron.js", "Windows Forms", "WPF"] },
     { title: "Databases", items: ["MSSQL", "MySQL", "PostgreSQL", "MongoDB"] },
-    { title: "DevOps & Cloud", items: ["Docker", "Azure"] },
-    { title: "Also Worked With", items: ["C++", "ONNX Runtime", "Biometric Devices"] },
+    { title: "DevOps & Cloud", items: ["Docker", "Azure", "AWS", "UpCloud", "Vercel", "Netlify", "MonsterASP.NET", "SmarterASP.NET"] },
+    { title: "Also Worked With", items: ["C++", "OCR", "ML Kit Text Recognition v2", "ML Kit Document Scanner", "ONNX Runtime", "Biometric Devices"] },
   ];
 
   const processSteps = [
@@ -36,7 +36,7 @@ const Home = () => {
     { name: "Bookkeeping App", id: "com.ark.moneypex", text: "Bookkeeping app to track business transactions and records on mobile." },
     { name: "Customer Quote App", id: "com.moneypex.customerquote", text: "Create and share customer quotes quickly from your phone." },
     { name: "Rents App", id: "com.moneypex.rents", text: "Rental management app for properties, tenants and rent tracking." },
-    { name: "Scanner App", id: "com.moneypex.scanner", text: "Scanner app for capturing documents and codes on the go." },
+    { name: "Scanner App", id: "com.moneypex.scanner", text: "Scanner app with OCR, built using ML Kit Text Recognition v2 and ML Kit Document Scanner." },
     { name: "Waiters App", id: "com.moneypex.waiterapp", text: "Waiter app for taking restaurant orders at the table." },
   ];
 
